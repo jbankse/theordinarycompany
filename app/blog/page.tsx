@@ -13,18 +13,18 @@ export default function BlogPage() {
       <Navbar />
       
       {/* Header Section */}
-      <section className="border-b-2 border-[#121212] p-8 lg:p-16 flex flex-col lg:flex-row justify-between items-end gap-8">
+      <section className="bg-[#F5F5F5] brutal-border-b border-[#121212] p-8 lg:p-16 flex flex-col lg:flex-row justify-between items-end gap-8">
         <div>
           <span className="big-number block">03</span>
-          <h1 className="font-display text-6xl lg:text-9xl leading-none uppercase tracking-tighter">
+          <h1 className="font-display font-black text-6xl lg:text-9xl leading-none uppercase tracking-tighter text-[#121212]">
             Insights
           </h1>
         </div>
         <div className="max-w-md">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase opacity-50 mb-4">
+          <p className="font-mono font-bold text-xs tracking-widest uppercase opacity-50 mb-4 text-[#121212]">
             Industry Perspectives & Updates
           </p>
-          <p className="text-xl font-medium uppercase leading-tight">
+          <p className="text-xl font-medium uppercase leading-tight text-[#121212]">
             Defining the future of visual infrastructure through strategic observations and technical expertise.
           </p>
         </div>
@@ -37,25 +37,25 @@ export default function BlogPage() {
             <Link 
               key={post.slug} 
               href={`/blog/${post.slug}`}
-              className="group border-b-2 border-[#121212] md:border-r-2 md:even:border-r-0 lg:border-r-2 lg:[&:nth-child(3n)]:border-r-0 p-8 lg:p-12 hover:bg-[#00FF00] transition-colors duration-300 flex flex-col justify-between min-h-[400px]"
+              className="group brutal-border-b border-[#121212] md:brutal-border-r md:even:border-r-0 lg:brutal-border-r lg:[&:nth-child(3n)]:border-r-0 p-8 lg:p-12 hover:bg-[#121212] transition-colors duration-300 flex flex-col justify-between min-h-[400px]"
             >
               <div>
                 <div className="flex justify-between items-start mb-8">
-                  <time dateTime={post.date} className="font-mono text-[10px] tracking-widest opacity-40 uppercase">
+                  <time dateTime={post.date} className="font-mono font-bold text-[10px] tracking-widest opacity-60 uppercase group-hover:text-[#FFFFFF] transition-colors">
                     {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                   </time>
-                  <div className="w-2 h-2 rounded-full bg-[#121212] group-hover:bg-white transition-colors" />
+                  <div className="w-2 h-2 rounded-full bg-[#121212] group-hover:bg-[#FFFFFF] transition-colors" />
                 </div>
-                <h2 className="font-display text-3xl lg:text-4xl leading-none uppercase tracking-tight mb-6 group-hover:text-white transition-colors">
+                <h2 className="font-display font-black text-3xl lg:text-4xl leading-none uppercase tracking-tighter mb-6 group-hover:text-[#FFFFFF] transition-colors text-[#121212]">
                   {post.title}
                 </h2>
-                <p className="font-sans text-sm uppercase leading-relaxed opacity-60 group-hover:opacity-100 group-hover:text-white transition-all">
+                <p className="font-sans font-medium text-sm uppercase leading-relaxed opacity-80 group-hover:opacity-100 group-hover:text-[#FFFFFF] transition-all text-[#121212]">
                   {post.excerpt}
                 </p>
               </div>
               <div className="mt-12 flex items-center gap-4">
-                <span className="font-display text-xs tracking-[0.3em] uppercase font-bold">Read Article</span>
-                <div className="h-px flex-1 bg-[#121212]/10 group-hover:bg-white/30 transition-colors" />
+                <span className="font-display text-xs tracking-widest uppercase font-bold group-hover:text-[#FFFFFF] transition-colors text-[#121212]">Read Article</span>
+                <div className="h-[2px] flex-1 bg-[#121212] group-hover:bg-[#FFFFFF] transition-colors" />
               </div>
             </Link>
           ))
