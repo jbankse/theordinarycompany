@@ -25,11 +25,12 @@ export default function Footer() {
         {/* Left Column: Navigation & Social (Moved from right) */}
         <div className="grid grid-cols-1 md:grid-cols-2 border-b-2 xl:border-b-0 border-r-0 xl:border-r-2 border-[#FFFFFF]/20 bg-[#121212] border-t-2 border-[#121212] xl:border-t-0">
           <div className="p-6 lg:p-12 border-r-0 md:border-r-2 border-[#FFFFFF]/20">
-            <span className="font-display font-bold text-[10px] tracking-widest text-[#FFFFFF] uppercase block mb-8 lg:mb-12 opacity-80">NAVIGATION</span>
+            <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] uppercase block mb-8 lg:mb-12 opacity-80">NAVIGATION</span>
             <ul className="space-y-4 lg:space-y-6">
-              {['SERVICES', 'WORK', 'CAREERS', 'BLOG', 'CONTACT'].map((item) => (
+              {['SERVICES', 'WORK', 'CAREERS', 'BLOG', 'CONTACT'].map((item, index) => (
                 <li key={item}>
-                  <Link href={['BLOG', 'CAREERS'].includes(item) ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`} className="font-display font-black text-7xl xl:text-8xl tracking-tighter hover:text-[#FF0000] transition-colors block leading-none py-1">
+                  <Link href={['BLOG', 'CAREERS'].includes(item) ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`} className="font-display font-black text-7xl xl:text-8xl tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
+                    <span className="text-sm md:text-base font-mono mt-2 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{index + 1}</span>
                     {item}
                   </Link>
                 </li>
@@ -37,11 +38,12 @@ export default function Footer() {
             </ul>
           </div>
           <div className="p-6 lg:p-12 border-t-2 md:border-t-0 border-[#FFFFFF]/20">
-            <span className="font-display font-bold text-[10px] tracking-widest text-[#FFFFFF] uppercase block mb-8 lg:mb-12 opacity-80">SOCIAL</span>
+            <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] uppercase block mb-8 lg:mb-12 opacity-80">SOCIAL</span>
             <ul className="space-y-4 lg:space-y-6">
-              {['INSTAGRAM', 'LINKEDIN', 'VIMEO', 'TWITTER', 'ARE.NA'].map((item) => (
+              {['INSTAGRAM', 'LINKEDIN', 'VIMEO', 'TWITTER', 'ARE.NA'].map((item, index) => (
                 <li key={item}>
-                  <Link href="#" className="font-display font-black text-7xl xl:text-8xl tracking-tighter hover:text-[#FF0000] transition-colors block leading-none py-1">
+                  <Link href="#" className="font-display font-black text-7xl xl:text-8xl tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
+                    <span className="text-sm md:text-base font-mono mt-2 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{index + 1}</span>
                     {item}
                   </Link>
                 </li>
@@ -55,7 +57,7 @@ export default function Footer() {
           <button 
             form="contact-form"
             type="submit"
-            className="w-full py-8 lg:py-12 bg-[#121212] text-[#FFFFFF] font-display font-black text-3xl lg:text-5xl tracking-tighter border-[3px] border-[#121212] hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-300 uppercase leading-none"
+            className="w-full py-8 lg:py-12 bg-[#FF0000] text-[#121212] font-display font-black text-3xl lg:text-5xl tracking-tighter border-[3px] border-[#121212] hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-300 uppercase leading-none"
           >
             SUBMIT
           </button>
