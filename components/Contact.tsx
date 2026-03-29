@@ -6,7 +6,7 @@ import { motion } from 'motion/react';
 export default function Contact() {
   return (
     <section id="contact" className="bg-[#FFFFFF]">
-      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
+      <div className="grid grid-cols-1 xl:grid-cols-[2fr_1fr]">
         {/* Left: Headline */}
         <div className="p-6 lg:p-16 brutal-border-r flex flex-col justify-between">
           <motion.div

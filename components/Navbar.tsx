@@ -17,8 +17,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#FFFFFF] border-b-2 border-t-2 border-[#1a1a1f]">
-        <div className="flex items-stretch h-16">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#FFFFFF] border-b-2 border-t-2 border-[#1a1a1f] box-border">
+        <div className="flex items-stretch h-16 w-full box-border">
           {/* Logo */}
           <Link 
             href="/" 

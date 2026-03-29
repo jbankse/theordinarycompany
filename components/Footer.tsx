@@ -21,10 +21,10 @@ export default function Footer() {
   return (
     <footer className="bg-[#1a1a1f] text-[#FFFFFF] relative overflow-hidden">
       {/* Top Section: Navigation & Submit */}
-      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] border-[#FFFFFF]/10 border-t-2 border-[#1a1a1f] lg:border-t-0">
+      <div className="grid grid-cols-1 xl:grid-cols-[2fr_1fr] border-[#FFFFFF]/10 border-t-2 border-[#1a1a1f] xl:border-t-0">
         {/* Left Column: Navigation & Social (Moved from right) */}
-        <div className="grid grid-cols-2 border-r-2 border-[#FFFFFF]/10 bg-[#1a1a1f] border-t-2 border-[#1a1a1f] lg:border-t-0">
-          <div className="p-6 lg:p-12 border-r-2 border-[#FFFFFF]/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 border-b-2 xl:border-b-0 border-r-0 xl:border-r-2 border-[#FFFFFF]/10 bg-[#1a1a1f] border-t-2 border-[#1a1a1f] xl:border-t-0">
+          <div className="p-6 lg:p-12 border-r-0 md:border-r-2 border-[#FFFFFF]/10">
             <span className="font-display text-[10px] tracking-[0.4em] text-[#00FF00] uppercase block mb-8 lg:mb-12 opacity-50">NAVIGATION</span>
             <ul className="space-y-4 lg:space-y-6">
               {['SERVICES', 'WORK', 'CAREERS', 'BLOG', 'CONTACT'].map((item) => (
@@ -36,7 +36,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-          <div className="p-6 lg:p-12">
+          <div className="p-6 lg:p-12 border-t-2 md:border-t-0 border-[#FFFFFF]/10">
             <span className="font-display text-[10px] tracking-[0.4em] text-[#00FF00] uppercase block mb-8 lg:mb-12 opacity-50">SOCIAL</span>
             <ul className="space-y-4 lg:space-y-6">
               {['INSTAGRAM', 'LINKEDIN', 'VIMEO', 'TWITTER', 'ARE.NA'].map((item) => (

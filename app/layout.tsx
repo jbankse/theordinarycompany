@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${anton.variable} antialiased`}>
-      <body suppressHydrationWarning className="bg-[#FFFFFF] text-[#1a1a1f] selection:bg-[#00FF00] selection:text-black">
+      <body suppressHydrationWarning className="bg-[#FFFFFF] text-[#1a1a1f] selection:bg-[#00FF00] selection:text-black overflow-x-hidden w-full max-w-[100vw]">
         <SmoothScroll>
           {children}
         </SmoothScroll>

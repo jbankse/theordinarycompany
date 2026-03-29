@@ -17,7 +17,7 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="big-number block text-6xl lg:text-8xl">01</span>
-            <h1 className="font-display text-5xl lg:text-8xl mt-4 leading-none uppercase tracking-tighter">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-8xl mt-4 leading-none uppercase tracking-tighter break-words">
               VISUAL<br />INFRASTRUCTURE
             </h1>
           </motion.div>
