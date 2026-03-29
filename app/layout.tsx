@@ -22,9 +22,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${interDisplay.variable} antialiased`}>
-      <body suppressHydrationWarning className="bg-[#FFFFFF] text-[#000000] selection:bg-[#000000] selection:text-[#FFFFFF] overflow-x-hidden w-full max-w-[100vw] box-border min-h-screen">
+      <body suppressHydrationWarning className="bg-[#FFFFFF] text-[#121212] selection:bg-[#121212] selection:text-[#FFFFFF] overflow-x-hidden w-full max-w-[100vw] box-border min-h-screen">
         {/* Viewport Borders */}
-        <div className="fixed inset-0 border-2 border-[#000000] z-[9999] pointer-events-none" />
+        <div className="fixed inset-0 border-2 border-[#121212] z-[9999] pointer-events-none" />
         <SmoothScroll>
           {children}
         </SmoothScroll>

@@ -12,9 +12,9 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isDark = theme === 'dark';
-  const navBg = isDark ? 'bg-[#000000]' : 'bg-[#FFFFFF]';
-  const borderColor = isDark ? 'border-[#FFFFFF]/20' : 'border-[#000000]';
-  const textColor = isDark ? 'text-[#FFFFFF]' : 'text-[#000000]';
+  const navBg = isDark ? 'bg-[#121212]' : 'bg-[#FFFFFF]';
+  const borderColor = isDark ? 'border-[#FFFFFF]/20' : 'border-[#121212]';
+  const textColor = isDark ? 'text-[#FFFFFF]' : 'text-[#121212]';
 
   const navLinks = [
     { name: 'SERVICES', href: '/#services' },
@@ -31,8 +31,8 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
           {/* Logo */}
           <Link 
             href="/" 
-            className={`flex items-center px-4 md:px-6 ${isDark ? 'bg-[#FF0000] hover:bg-[#FFFFFF]' : 'bg-[#000000] hover:bg-[#FF0000] text-[#FFFFFF]'} hover:text-[#000000] transition-colors duration-200 border-l-2 ${borderColor}`}
-            style={{ color: isDark ? '#000000' : undefined }}
+            className={`flex items-center px-4 md:px-6 ${isDark ? 'bg-[#FF0000] hover:bg-[#FFFFFF]' : 'bg-[#121212] hover:bg-[#FF0000] text-[#FFFFFF]'} hover:text-[#121212] transition-colors duration-200 border-l-2 ${borderColor}`}
+            style={{ color: isDark ? '#121212' : undefined }}
           >
             <span className="font-display font-black text-lg md:text-xl tracking-tighter uppercase">ORDINARY</span>
           </Link>
@@ -55,15 +55,15 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
           {/* Desktop CTA */}
           <Link 
             href="/#contact"
-            className={`hidden lg:flex items-center px-8 bg-[#FF0000] text-[#FFFFFF] font-display font-bold text-sm tracking-widest border-l-2 ${borderColor} hover:bg-[#000000] transition-colors duration-200`}
+            className={`hidden lg:flex items-center px-8 bg-[#FF0000] text-[#121212] font-display font-bold text-sm tracking-widest border-l-2 ${borderColor} hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-200`}
           >
-            START_PROJECT
+            CONTACT US
           </Link>
 
           {/* Mobile Menu Toggle */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`flex lg:hidden items-center justify-center px-6 bg-[#FF0000] text-[#FFFFFF] font-display font-bold text-sm tracking-widest border-l-2 ${borderColor} hover:bg-[#000000] transition-colors duration-200 w-24`}
+            className={`flex lg:hidden items-center justify-center px-6 bg-[#FF0000] text-[#FFFFFF] font-display font-bold text-sm tracking-widest border-l-2 ${borderColor} hover:bg-[#121212] transition-colors duration-200 w-24`}
           >
             {isMenuOpen ? 'CLOSE' : 'MENU'}
           </button>
@@ -78,7 +78,7 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className={`fixed inset-0 z-40 ${isDark ? 'bg-[#000000]' : 'bg-[#000000]'} pt-16 flex flex-col`}
+            className={`fixed inset-0 z-40 ${isDark ? 'bg-[#121212]' : 'bg-[#121212]'} pt-16 flex flex-col`}
           >
             <div className="flex-1 flex flex-col p-8">
               <div className="flex flex-col gap-6 mt-12">
@@ -109,9 +109,9 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                 <Link
                   href="/#contact"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block w-full py-6 text-center bg-[#FF0000] text-[#FFFFFF] font-display font-black text-2xl md:text-3xl tracking-widest hover:bg-[#FFFFFF] hover:text-[#000000] transition-colors duration-200"
+                  className="block w-full py-6 text-center bg-[#FF0000] text-[#121212] font-display font-black text-2xl md:text-3xl tracking-widest hover:bg-[#FFFFFF] hover:text-[#121212] transition-colors duration-200"
                 >
-                  START_PROJECT
+                  CONTACT US
                 </Link>
               </motion.div>
             </div>

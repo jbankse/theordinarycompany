@@ -73,7 +73,7 @@ export default function VisualSystems() {
   return (
     <div className="w-full h-full absolute inset-0">
       <Canvas camera={{ position: [0, 0, 12], fov: 45 }}>
-        <color attach="background" args={['#1a1a1f']} />
+        <color attach="background" args={['#121212']} />
         <DigitalCore />
       </Canvas>
     </div>

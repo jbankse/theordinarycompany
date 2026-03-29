@@ -55,9 +55,9 @@ export default function Services() {
         ease: "none",
         scrollTrigger: {
           trigger: trigger,
-          start: "top 100px", // Trigger earlier (closer to top but with offset)
-          end: () => `+=${viewportWidth * 1.5}`, // Increase scroll distance for better feel
-          scrub: 0.5, // More immediate feedback than scrub: 1
+          start: "top 68px", // Trigger exactly below the navbar (64px + 4px borders)
+          end: () => `+=${viewportWidth * 2}`, // Extend scroll distance for a smoother feel
+          scrub: 0.5,
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
@@ -69,36 +69,51 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" className="bg-[#FFFFFF] overflow-hidden text-[#000000]">
-      <div ref={triggerRef} className="relative">
+    <section id="services" className="bg-[#FFFFFF] overflow-hidden text-[#121212] brutal-border-b border-[#121212]">
+      <div ref={triggerRef} className="relative h-[calc(100vh-68px)]">
         <div 
           ref={sectionRef} 
-          className="flex flex-nowrap brutal-border-b brutal-border-t border-[#000000] box-border"
+          className="flex flex-nowrap h-full brutal-border-b brutal-border-t border-[#121212] box-border"
         >
-          {services.map((service) => (
-            <div 
+          {services.map((service, i) => (
+            <motion.div 
               key={service.id}
-              className="flex-shrink-0 w-full md:w-1/3 p-6 lg:p-12 brutal-border-r border-[#000000] group hover:bg-[#F5F5F5] transition-colors duration-300 flex flex-col justify-between box-border"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex-shrink-0 w-full md:w-[85vw] h-full group flex flex-col brutal-border-r border-[#121212] last:border-r-0 bg-[#FFFFFF]"
             >
-              <div>
-                <span className="big-number block mb-8 group-hover:text-[#000000] transition-colors">
+              {/* Top Section */}
+              <div className="relative flex-1 p-6 md:p-12 brutal-border-b border-[#121212] bg-[#F5F5F5] group-hover:bg-[#FFFFFF] transition-colors duration-500 flex flex-col justify-center">
+                <span className="absolute top-6 left-6 md:top-8 md:left-8 font-display font-bold text-xl md:text-2xl text-[#FFFFFF] bg-[#121212] px-4 py-1 border-2 border-[#121212]">
                   {service.id}
                 </span>
-                <h3 className="font-display font-black text-4xl lg:text-7xl mb-6 uppercase tracking-tighter">
-                  {service.title}
-                </h3>
-                <p className="text-lg font-medium uppercase leading-tight mb-8 opacity-90">
-                  {service.description}
-                </p>
+                
+                <div className="max-w-4xl mx-auto text-center mt-12">
+                  <p className="text-2xl md:text-4xl lg:text-5xl font-medium uppercase leading-tight opacity-90">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {service.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 border-2 border-[#000000] text-xs font-display font-bold tracking-widest group-hover:bg-[#000000] group-hover:text-[#FFFFFF] transition-colors">
-                    {tag}
-                  </span>
-                ))}
+              
+              {/* Bottom Title Section */}
+              <div className="h-[25vh] md:h-[30vh] p-6 md:p-12 flex flex-col justify-between bg-[#FFFFFF] group-hover:bg-[#121212] group-hover:text-[#FFFFFF] transition-colors duration-300">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                  <h3 className="font-display font-black text-4xl md:text-6xl lg:text-8xl uppercase tracking-tighter leading-none">
+                    {service.title}
+                  </h3>
+                  
+                  <div className="flex flex-wrap gap-2 md:gap-4 justify-start md:justify-end max-w-sm">
+                    {service.tags.map((tag) => (
+                      <span key={tag} className="px-3 py-1 md:px-4 md:py-2 border-2 border-[#121212] group-hover:border-[#FFFFFF] text-xs md:text-sm font-display font-bold tracking-widest bg-[#121212] text-[#FFFFFF] group-hover:bg-[#FFFFFF] group-hover:text-[#121212] transition-colors">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

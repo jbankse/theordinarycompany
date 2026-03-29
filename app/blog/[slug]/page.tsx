@@ -57,7 +57,7 @@ export default async function PostPage({ params }: PostPageProps) {
       
       {/* Post Header */}
       <article>
-        <header className="border-b-2 border-[#1a1a1f] p-8 lg:p-24 bg-white text-[#1a1a1f]">
+        <header className="border-b-2 border-[#121212] p-8 lg:p-24 bg-white text-[#121212]">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8 text-sm font-medium uppercase tracking-widest opacity-60">
               <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
@@ -74,20 +74,20 @@ export default async function PostPage({ params }: PostPageProps) {
         </header>
 
         {/* Post Content */}
-        <section className="p-8 lg:p-24 border-b-2 border-[#1a1a1f]">
+        <section className="p-8 lg:p-24 border-b-2 border-[#121212]">
           <div className="max-w-3xl mx-auto">
             <div className="prose prose-xl max-w-none">
-              <div className="font-sans text-lg lg:text-xl leading-relaxed space-y-8 text-[#1a1a1f]/90">
+              <div className="font-sans text-lg lg:text-xl leading-relaxed space-y-8 text-[#121212]/90">
                 <Markdown>{post.content}</Markdown>
               </div>
             </div>
             
-            <div className="mt-24 pt-12 border-t-2 border-[#1a1a1f]/10">
+            <div className="mt-24 pt-12 border-t-2 border-[#121212]/10">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
                 <h3 className="font-display text-2xl uppercase tracking-tight">Continue Reading</h3>
                 <Link 
                   href="/blog"
-                  className="font-display text-sm tracking-[0.2em] uppercase hover:text-[#00FF00] transition-colors font-bold border-b-2 border-[#1a1a1f] pb-1"
+                  className="font-display text-sm tracking-[0.2em] uppercase hover:text-[#00FF00] transition-colors font-bold border-b-2 border-[#121212] pb-1"
                 >
                   View All Insights
                 </Link>
@@ -100,7 +100,7 @@ export default async function PostPage({ params }: PostPageProps) {
                     <Link 
                       key={otherPost.slug} 
                       href={`/blog/${otherPost.slug}`}
-                      className="group block p-6 border-2 border-[#1a1a1f] hover:bg-[#00FF00] transition-colors"
+                      className="group block p-6 border-2 border-[#121212] hover:bg-[#00FF00] transition-colors"
                     >
                       <time dateTime={otherPost.date} className="font-mono text-[10px] tracking-widest opacity-40 uppercase block mb-4">
                         {new Date(otherPost.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
