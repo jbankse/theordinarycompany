@@ -29,7 +29,12 @@ export default function Contact() {
 
         {/* Right: Form */}
         <div className="p-6 lg:p-16 bg-[#00FF00] text-[#1a1a1f]">
-          <form id="contact-form" className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+          <form id="contact-form" className="space-y-8 flex flex-col justify-center h-full" onSubmit={(e) => e.preventDefault()}>
+            <div className="mb-4 lg:mb-8">
+              <h3 className="font-display text-3xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-none text-[#1a1a1f]">
+                CLIENT_DATA_INPUT
+              </h3>
+            </div>
             <div className="space-y-2">
               <label className="font-display text-xs tracking-[0.3em] text-[#1a1a1f] uppercase font-bold">USER_NAME</label>
               <input 

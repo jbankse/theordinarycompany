@@ -29,7 +29,7 @@ export default function Footer() {
             <ul className="space-y-4 lg:space-y-6">
               {['SERVICES', 'WORK', 'CAREERS', 'BLOG', 'CONTACT'].map((item) => (
                 <li key={item}>
-                  <Link href={item === 'BLOG' ? '/blog' : `#${item.toLowerCase()}`} className="font-display text-5xl lg:text-6xl tracking-widest hover:text-[#00FF00] transition-colors block leading-none py-1">
+                  <Link href={['BLOG', 'CAREERS'].includes(item) ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`} className="font-display text-6xl xl:text-7xl tracking-widest hover:text-[#00FF00] transition-colors block leading-none py-1">
                     {item}
                   </Link>
                 </li>
@@ -41,7 +41,7 @@ export default function Footer() {
             <ul className="space-y-4 lg:space-y-6">
               {['INSTAGRAM', 'LINKEDIN', 'VIMEO', 'TWITTER', 'ARE.NA'].map((item) => (
                 <li key={item}>
-                  <Link href="#" className="font-display text-5xl lg:text-6xl tracking-widest hover:text-[#00FF00] transition-colors block leading-none py-1">
+                  <Link href="#" className="font-display text-6xl xl:text-7xl tracking-widest hover:text-[#00FF00] transition-colors block leading-none py-1">
                     {item}
                   </Link>
                 </li>
