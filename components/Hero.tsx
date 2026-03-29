@@ -16,31 +16,31 @@ export default function Hero() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="big-number block text-6xl lg:text-8xl">01</span>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-8xl mt-4 leading-none uppercase tracking-tighter break-words">
-              VISUAL<br />INFRASTRUCTURE
+            <span className="big-number block text-6xl lg:text-8xl text-black">01</span>
+            <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-8xl mt-4 leading-none uppercase tracking-tighter break-words">
+              PRECISION<br />ARCHITECTURE.
             </h1>
           </motion.div>
           
           <div className="mt-12 max-w-md">
-            <p className="text-xl font-medium leading-tight uppercase">
-              A media and technology company developing the systems that power modern visual identities.
+            <p className="text-xl font-medium leading-tight uppercase text-[#000000] tracking-tight">
+              Engineering structured digital experiences. Precise, functional, and meticulously designed.
             </p>
           </div>
         </div>
 
         {/* Right: Marquee & Interaction */}
-        <div className="bg-[#1a1a1f] text-[#FFFFFF] flex flex-col overflow-hidden relative">
+        <div className="bg-[#000000] text-[#FFFFFF] flex flex-col overflow-hidden relative">
           <div className="flex-1 flex items-center justify-center p-8 relative overflow-hidden">
             <VisualSystems />
           </div>
 
           {/* Marquee */}
-          <div className="h-24 bg-[#00FF00] text-[#1a1a1f] flex items-center overflow-hidden z-10">
+          <div className="h-24 bg-[#FFFFFF] text-[#000000] flex items-center overflow-hidden z-10 border-t-2 border-[#000000]">
             <div className="marquee-track">
               {[...Array(10)].map((_, i) => (
-                <span key={i} className="font-display text-2xl md:text-4xl mx-8 uppercase">
-                  Ordinary Inc. — Visual Infrastructure™ — Managed Services — Branding — Motion —
+                <span key={i} className="font-display font-bold text-2xl md:text-4xl mx-8 uppercase tracking-widest">
+                  Ordinary Architecture — Systematic Design — Blueprint — Structure —
                 </span>
               ))}
             </div>
@@ -49,18 +49,18 @@ export default function Hero() {
       </div>
 
       {/* Bottom Rail */}
-      <div className="h-16 brutal-border-b flex items-stretch">
-        <div className="px-4 lg:px-8 brutal-border-l brutal-border-r brutal-border-t hidden md:flex items-center font-display text-xs hover:bg-[#00FF00] cursor-pointer transition-colors">
+      <div className="h-16 brutal-border-b flex items-stretch bg-[#FFFFFF]">
+        <div className="px-4 lg:px-8 brutal-border-l brutal-border-r brutal-border-t hidden md:flex items-center font-display font-bold text-xs hover:bg-[#000000] hover:text-[#FFFFFF] cursor-pointer transition-colors tracking-widest text-[#000000]">
           SCROLL_DOWN
         </div>
-        <div className="flex-1 flex items-center px-4 lg:px-8 brutal-border-t font-display text-xs tracking-widest overflow-hidden">
+        <div className="flex-1 flex items-center px-4 lg:px-8 brutal-border-t font-display font-bold text-xs tracking-widest overflow-hidden text-[#000000]">
           <div className="marquee-track" style={{ animationDuration: '40s' }}>
             {[...Array(20)].map((_, i) => (
-              <span key={i} className="mx-4">AVAILABLE FOR NEW PROJECTS //</span>
+              <span key={i} className="mx-4">STRUCTURE // FUNCTION // FORM //</span>
             ))}
           </div>
         </div>
-        <div className="px-4 lg:px-8 brutal-border-l brutal-border-t hidden md:flex items-center font-display text-xs hover:bg-[#00FF00] cursor-pointer transition-colors">
+        <div className="px-4 lg:px-8 brutal-border-l brutal-border-t hidden md:flex items-center font-display font-bold text-xs hover:bg-[#000000] hover:text-[#FFFFFF] cursor-pointer transition-colors tracking-widest text-[#000000]">
           SCROLL_DOWN
         </div>
       </div>

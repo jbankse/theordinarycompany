@@ -3,14 +3,17 @@
 @theme {
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
-  --color-neon: #00FF00;
-  --color-black: #1a1a1f;
-  --color-brutal-black: #1a1a1f;
+  --color-neon: #000000;
+  --color-black: #000000;
+  --color-brutal-black: #000000;
   --color-gallery-white: #FFFFFF;
+  --color-soft-gray: #F5F5F5;
+  --color-border-gray: #E5E5E5;
+  --border-width-refined: 2px;
 }
 
 :root {
-  --foreground-rgb: 26, 26, 31;
+  --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
 }
 
@@ -29,27 +32,29 @@ html, body {
   width: 100vw !important;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
-/* Brutalist Borders */
+/* Refined Borders */
 .brutal-border {
-  border: 2px solid var(--color-brutal-black);
+  border: var(--border-width-refined) solid var(--color-brutal-black);
 }
 
 .brutal-border-b {
-  border-bottom: 2px solid var(--color-brutal-black);
+  border-bottom: var(--border-width-refined) solid var(--color-brutal-black);
 }
 
 .brutal-border-r {
-  border-right: 2px solid var(--color-brutal-black);
+  border-right: var(--border-width-refined) solid var(--color-brutal-black);
 }
 
 .brutal-border-l {
-  border-left: 2px solid var(--color-brutal-black);
+  border-left: var(--border-width-refined) solid var(--color-brutal-black);
 }
 
 .brutal-border-t {
-  border-top: 2px solid var(--color-brutal-black);
+  border-top: var(--border-width-refined) solid var(--color-brutal-black);
 }
 
 /* Marquee Animation */
@@ -73,13 +78,12 @@ html, body {
   font-family: var(--font-display);
   font-size: clamp(4rem, 15vw, 12rem);
   line-height: 0.8;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
 }
 
-/* Neon Glow */
-.neon-glow:hover {
-  background: var(--color-neon);
-  box-shadow: 0 0 20px var(--color-neon);
+/* Refined Hover */
+.refined-hover:hover {
+  background: var(--color-soft-gray);
 }
 
 /* Lenis Smooth Scroll */
@@ -106,12 +110,11 @@ html.lenis body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--color-gallery-white);
-  border-left: 2px solid var(--color-brutal-black);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -119,5 +122,5 @@ html.lenis body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-neon);
+  background: #333333;
 }

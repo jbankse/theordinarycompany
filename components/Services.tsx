@@ -10,27 +10,27 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     id: '01',
-    title: 'BRANDING',
-    description: 'Developing the core visual identity systems that define market presence.',
-    tags: ['STRATEGY', 'LOGOTYPE', 'GUIDELINES'],
+    title: 'PRECISION BRANDING',
+    description: 'Constructing the fundamental core of visual identity through systematic design.',
+    tags: ['STRATEGY', 'LOGOTYPE', 'SYSTEMS'],
   },
   {
     id: '02',
-    title: 'MOTION',
-    description: 'Dynamic visual infrastructure for digital-first brand experiences.',
-    tags: ['ANIMATION', 'VFX', 'SYSTEMS'],
+    title: 'MOTION ARCHITECTURE',
+    description: 'Precision engineered motion graphics & 3D sequences.',
+    tags: ['ANIMATION', 'VFX', 'RENDER'],
   },
   {
     id: '03',
-    title: 'SOCIAL',
-    description: 'Fully managed content production pipelines for scale.',
-    tags: ['SOCIAL', 'MARKETING', 'PRODUCTION'],
+    title: 'DIGITAL INFRASTRUCTURE',
+    description: 'Robust web platforms built to scale. Form meets function.',
+    tags: ['WEB', 'PLATFORMS', 'DEPLOY'],
   },
   {
     id: '04',
-    title: 'MARKETING',
-    description: 'Strategic growth and performance marketing systems.',
-    tags: ['GROWTH', 'ADS', 'ANALYTICS'],
+    title: 'SYSTEMATIC GROWTH',
+    description: 'Data-driven growth and systematic market infiltration.',
+    tags: ['GROWTH', 'METRICS', 'CAMPAIGNS'],
   },
 ];
 
@@ -69,31 +69,31 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" className="bg-[#FFFFFF] overflow-hidden">
+    <section id="services" className="bg-[#FFFFFF] overflow-hidden text-[#000000]">
       <div ref={triggerRef} className="relative">
         <div 
           ref={sectionRef} 
-          className="flex flex-nowrap brutal-border-b brutal-border-t"
+          className="flex flex-nowrap brutal-border-b brutal-border-t border-[#000000] box-border"
         >
           {services.map((service) => (
             <div 
               key={service.id}
-              className="flex-shrink-0 w-full md:w-1/3 p-6 lg:p-12 brutal-border-r group hover:bg-[#1a1a1f] hover:text-[#FFFFFF] transition-colors duration-300 flex flex-col justify-between"
+              className="flex-shrink-0 w-full md:w-1/3 p-6 lg:p-12 brutal-border-r border-[#000000] group hover:bg-[#F5F5F5] transition-colors duration-300 flex flex-col justify-between box-border"
             >
               <div>
-                <span className="big-number block mb-8 group-hover:text-[#00FF00] transition-colors">
+                <span className="big-number block mb-8 group-hover:text-[#000000] transition-colors">
                   {service.id}
                 </span>
-                <h3 className="font-display text-4xl lg:text-6xl mb-6 uppercase tracking-tighter">
+                <h3 className="font-display font-black text-4xl lg:text-7xl mb-6 uppercase tracking-tighter">
                   {service.title}
                 </h3>
-                <p className="text-lg font-medium uppercase leading-tight mb-8 opacity-70">
+                <p className="text-lg font-medium uppercase leading-tight mb-8 opacity-90">
                   {service.description}
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
                 {service.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 border-2 border-[#1a1a1f] text-xs font-display tracking-widest group-hover:border-[#00FF00] group-hover:text-[#00FF00] transition-colors">
+                  <span key={tag} className="px-3 py-1 border-2 border-[#000000] text-xs font-display font-bold tracking-widest group-hover:bg-[#000000] group-hover:text-[#FFFFFF] transition-colors">
                     {tag}
                   </span>
                 ))}
