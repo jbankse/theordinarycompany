@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --color-neon: #00FF00;
+  --color-black: #1a1a1f;
+  --color-brutal-black: #1a1a1f;
+  --color-gallery-white: #FFFFFF;
+}
+
+:root {
+  --foreground-rgb: 26, 26, 31;
+  --background-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Brutalist Borders */
+.brutal-border {
+  border: 2px solid var(--color-brutal-black);
+}
+
+.brutal-border-b {
+  border-bottom: 2px solid var(--color-brutal-black);
+}
+
+.brutal-border-r {
+  border-right: 2px solid var(--color-brutal-black);
+}
+
+.brutal-border-l {
+  border-left: 2px solid var(--color-brutal-black);
+}
+
+.brutal-border-t {
+  border-top: 2px solid var(--color-brutal-black);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Big Numbers */
+.big-number {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+}
+
+/* Neon Glow */
+.neon-glow:hover {
+  background: var(--color-neon);
+  box-shadow: 0 0 20px var(--color-neon);
+}
+
+/* Lenis Smooth Scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gallery-white);
+  border-left: 2px solid var(--color-brutal-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brutal-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon);
+}
