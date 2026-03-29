@@ -51,19 +51,22 @@ export default function Work() {
     if (scrollAmount <= 0) return;
 
     const ctx = gsap.context(() => {
-      gsap.to(section, {
-        x: -scrollAmount,
-        ease: "none",
-        scrollTrigger: {
-          trigger: trigger,
-          start: "top 68px", // Trigger exactly below the navbar (64px + 4px borders)
-          end: () => `+=${viewportWidth * 2}`, // Extend scroll distance for a smoother feel
-          scrub: 0.5,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
+      gsap.fromTo(section, 
+        { x: -scrollAmount },
+        {
+          x: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: trigger,
+            start: "top 68px", // Trigger exactly below the navbar (64px + 4px borders)
+            end: () => `+=${viewportWidth * 2}`, // Extend scroll distance for a smoother feel
+            scrub: 0.5,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
     });
 
     return () => ctx.revert();

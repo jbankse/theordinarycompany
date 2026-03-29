@@ -43,7 +43,7 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center px-6 xl:px-8 font-display font-bold text-sm tracking-widest border-r-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#FFFFFF] transition-colors duration-200 ${i === 0 ? `border-l-2 ${borderColor}` : ''}`}
+                className={`flex items-center px-6 xl:px-8 font-display font-bold text-sm tracking-widest border-r-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-200 ${i === 0 ? `border-l-2 ${borderColor}` : ''}`}
               >
                 {link.name}
               </Link>

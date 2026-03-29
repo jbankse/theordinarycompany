@@ -55,9 +55,9 @@ export default function Footer() {
           <button 
             form="contact-form"
             type="submit"
-            className="w-full py-8 lg:py-12 bg-[#121212] text-[#FFFFFF] font-display font-black text-3xl lg:text-5xl tracking-tighter border-[3px] border-[#121212] hover:bg-[#FF0000] hover:text-[#FFFFFF] transition-colors duration-300 uppercase leading-none"
+            className="w-full py-8 lg:py-12 bg-[#121212] text-[#FFFFFF] font-display font-black text-3xl lg:text-5xl tracking-tighter border-[3px] border-[#121212] hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-300 uppercase leading-none"
           >
-            SUBMIT DATA
+            SUBMIT
           </button>
         </div>
       </div>
