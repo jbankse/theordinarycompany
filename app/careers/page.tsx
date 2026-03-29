@@ -18,11 +18,11 @@ export default function CareersPage() {
 
   return (
     <SmoothScroll>
-      <main className="relative min-h-screen bg-[#1C1C1C] text-[#FFF9F2] overflow-x-hidden selection:bg-[#8B5CF6] selection:text-[#FFF9F2]">
-        <Navbar theme="dark" />
+      <main className="relative min-h-screen bg-[#FFFFFF] text-[#121212] overflow-x-hidden">
+        <Navbar theme="light" />
         
         {/* Extreme Typographical Hero */}
-        <section className="pt-40 lg:pt-64 pb-24 lg:pb-32 px-6 lg:px-12 brutal-border-b border-[#FFF9F2]/10 relative overflow-hidden">
+        <section className="pt-40 lg:pt-64 pb-24 lg:pb-32 px-6 lg:px-16 brutal-border-b border-[#121212] relative overflow-hidden bg-[#FFFFFF]">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -30,94 +30,93 @@ export default function CareersPage() {
             className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 md:gap-0 z-10 relative"
           >
             <div>
-              <span className="font-display text-[#8B5CF6] tracking-widest text-sm md:text-base uppercase mb-8 block">
+              <span className="font-display font-bold text-[#FF0000] tracking-widest text-sm md:text-base uppercase mb-8 block">
                 CREATIVE_STUDIOS_NETWORK
               </span>
-              <h1 className="font-display text-5xl md:text-7xl lg:text-9xl uppercase tracking-tighter leading-none break-words max-w-5xl">
+              <h1 className="font-display font-black text-5xl md:text-7xl lg:text-9xl uppercase tracking-tighter leading-none break-words max-w-5xl text-[#121212]">
                 COME PLAY<br />WITH US
               </h1>
             </div>
-            <div className="md:text-right font-mono text-[10px] tracking-widest text-[#FFF9F2]/60 uppercase max-w-[200px]">
+            <div className="md:text-right font-mono text-[10px] tracking-widest text-[#121212]/60 uppercase max-w-[200px] font-bold">
               <p>DOOR_IS_OPEN // SAY_HELLO // NEW_YORK_NY</p>
             </div>
           </motion.div>
           
           {/* Background Grid Accent */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.05] bg-[linear-gradient(to_right,#8B5CF6_1px,transparent_1px),linear-gradient(to_bottom,#8B5CF6_1px,transparent_1px)] bg-[size:100px_100px]" />
+          <div className="absolute inset-0 pointer-events-none opacity-[0.05] bg-[linear-gradient(to_right,#121212_1px,transparent_1px),linear-gradient(to_bottom,#121212_1px,transparent_1px)] bg-[size:100px_100px]" />
         </section>
 
         {/* Form Terminal Section */}
-        <section className="bg-[#1C1C1C]">
-          <div className="grid grid-cols-1 xl:grid-cols-[1.5fr_1fr]">
+        <section className="bg-[#FFFFFF]">
+          <div className="grid grid-cols-1 xl:grid-cols-[2fr_1fr]">
             {/* Left: Tactical Instructions */}
-            <div className="p-6 lg:p-16 border-b-2 xl:border-b-0 border-r-0 xl:border-r-2 border-[#FFF9F2]/10 flex flex-col justify-center">
+            <div className="p-6 lg:p-16 bg-[#F5F5F5] brutal-border-r border-[#121212] flex flex-col justify-between">
               <motion.div
-                initial={{ x: -20, opacity: 0 }}
+                initial={{ x: -50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
               >
-                <h2 className="font-display text-4xl lg:text-7xl uppercase tracking-tight leading-none mb-12">
+                <span className="big-number block">03</span>
+                <h2 className="font-display font-black text-5xl lg:text-8xl mt-4 leading-none uppercase tracking-tighter text-[#121212]">
                   SHARE<br />YOUR MAGIC
                 </h2>
-                <div className="space-y-6 max-w-md font-medium text-lg lg:text-xl text-[#FFF9F2]/80">
-                  <p>
-                    We love looking at creative work, portfolios, and whatever art you're playing with right now.
-                  </p>
-                  <p className="text-[#8B5CF6]">
-                    Drop your latest work below.
-                  </p>
-                </div>
               </motion.div>
+              
+              <div className="mt-12">
+                <p className="text-xl font-medium uppercase leading-tight max-w-md text-[#121212]">
+                  We love looking at creative work, portfolios, and whatever art you're playing with right now. Drop your latest work below.
+                </p>
+              </div>
             </div>
 
             {/* Right: Data Capture Terminal */}
-            <div className="p-6 lg:p-16 bg-[#8B5CF6] text-[#1C1C1C] flex flex-col justify-center h-full">
-              <form className="space-y-8 max-w-xl mx-auto xl:mx-0 w-full" onSubmit={(e) => e.preventDefault()}>
-                <div className="mb-4 lg:mb-12">
-                  <h3 className="font-display text-3xl md:text-5xl uppercase tracking-tight leading-none">
+            <div className="p-6 lg:p-16 bg-[#F5F5F5] text-[#121212]">
+              <form id="contact-form" className="space-y-8 flex flex-col justify-center h-full" onSubmit={(e) => e.preventDefault()}>
+                <div className="mb-8 lg:mb-12">
+                  <h3 className="font-display font-black text-3xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-none text-[#121212] max-w-2xl">
                     YOUR DETAILS
                   </h3>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="font-display text-xs tracking-widest uppercase font-bold">YOUR NAME</label>
+                  <label className="font-display font-bold text-xs tracking-widest text-[#121212] uppercase">YOUR NAME</label>
                   <input 
                     type="text" 
                     placeholder="ENTER YOUR NAME"
-                    className="w-full bg-transparent brutal-border border-[#1C1C1C] p-3 md:p-4 font-display text-lg md:text-xl focus:border-[#1C1C1C] focus:text-[#1C1C1C] outline-none transition-all placeholder:text-[#1C1C1C]/40"
+                    className="w-full bg-transparent border-[3px] border-[#121212] p-3 md:p-4 font-display font-bold text-lg md:text-xl focus:border-[#121212] focus:bg-[#FFFFFF] outline-none transition-all placeholder:text-[#121212]/40"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="font-display text-xs tracking-widest uppercase font-bold">EMAIL ADDRESS</label>
+                  <label className="font-display font-bold text-xs tracking-widest text-[#121212] uppercase">EMAIL ADDRESS</label>
                   <input 
                     type="email" 
                     placeholder="YOUR@EMAIL.COM"
-                    className="w-full bg-transparent brutal-border border-[#1C1C1C] p-3 md:p-4 font-display text-lg md:text-xl focus:border-[#1C1C1C] focus:text-[#1C1C1C] outline-none transition-all placeholder:text-[#1C1C1C]/40"
+                    className="w-full bg-transparent border-[3px] border-[#121212] p-3 md:p-4 font-display font-bold text-lg md:text-xl focus:border-[#121212] focus:bg-[#FFFFFF] outline-none transition-all placeholder:text-[#121212]/40"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="font-display text-xs tracking-widest uppercase font-bold">PORTFOLIO LINK</label>
+                  <label className="font-display font-bold text-xs tracking-widest text-[#121212] uppercase">PORTFOLIO LINK</label>
                   <input 
                     type="url" 
                     placeholder="HTTPS://YOUR-PORTFOLIO.COM"
-                    className="w-full bg-transparent brutal-border border-[#1C1C1C] p-3 md:p-4 font-display text-lg md:text-xl focus:border-[#1C1C1C] focus:text-[#1C1C1C] outline-none transition-all placeholder:text-[#1C1C1C]/40"
+                    className="w-full bg-transparent border-[3px] border-[#121212] p-3 md:p-4 font-display font-bold text-lg md:text-xl focus:border-[#121212] focus:bg-[#FFFFFF] outline-none transition-all placeholder:text-[#121212]/40"
                   />
                 </div>
 
                 {/* Brutalist File Upload */}
                 <div className="space-y-2 pt-4">
-                  <label className="font-display text-xs tracking-widest uppercase font-bold">PORTFOLIO // PDF</label>
+                  <label className="font-display font-bold text-xs tracking-widest text-[#121212] uppercase">PORTFOLIO // PDF</label>
                   <div 
-                    className="w-full bg-[#1C1C1C] brutal-border border-[#1C1C1C] hover:bg-[#FFF9F2] hover:text-[#1C1C1C] text-[#FFF9F2] transition-colors duration-300 cursor-pointer"
+                    className="w-full bg-[#121212] border-[3px] border-[#121212] hover:bg-[#FF0000] hover:border-[#121212] text-[#FFFFFF] hover:text-[#121212] transition-colors duration-300 cursor-pointer"
                     onClick={() => fileInputRef.current?.click()}
                   >
                     <div className="p-4 md:p-6 flex flex-col md:flex-row items-center justify-between pointer-events-none">
-                      <span className="font-display text-xl md:text-2xl tracking-tighter uppercase truncate w-full md:w-auto text-center md:text-left">
+                      <span className="font-display font-black text-xl md:text-2xl tracking-tighter uppercase truncate w-full md:w-auto text-center md:text-left">
                         {fileName ? fileName : "[SELECT PORTFOLIO]"}
                       </span>
-                      <span className="font-display text-sm tracking-widest text-[#8B5CF6] mt-2 md:mt-0">
+                      <span className="font-display font-bold text-sm tracking-widest mt-2 md:mt-0">
                         {fileName ? 'READY TO SEND' : 'BROWSE FILES'}
                       </span>
                     </div>
@@ -130,21 +129,11 @@ export default function CareersPage() {
                     className="hidden" 
                   />
                 </div>
+                
+                {/* Submit button handled in Footer via form="contact-form" */}
               </form>
             </div>
           </div>
-        </section>
-        
-        {/* Full Width Submit Area */}
-        <section className="bg-[#1C1C1C] border-t-2 border-[#FFF9F2]/10">
-          <button 
-            type="submit"
-            className="w-full py-16 lg:py-24 bg-[#1C1C1C] text-[#FFF9F2] font-display text-4xl md:text-6xl lg:text-8xl tracking-tight hover:bg-[#8B5CF6] hover:text-[#1C1C1C] transition-colors duration-300 uppercase leading-none group"
-          >
-            <span className="inline-block whitespace-normal break-words group-hover:-translate-y-2 transition-transform duration-300">
-              SEND<br className="md:hidden" /> APPLICATION
-            </span>
-          </button>
         </section>
 
         <Footer />
