@@ -68,7 +68,7 @@ export default function BlogPage() {
         )}
       </section>
 
-      <Footer />
+      <Footer hideSubmit={true} />
     </main>
   );
 }

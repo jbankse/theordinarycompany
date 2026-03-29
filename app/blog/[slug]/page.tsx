@@ -119,7 +119,7 @@ export default async function PostPage({ params }: PostPageProps) {
         </section>
       </article>
 
-      <Footer />
+      <Footer hideSubmit={true} />
     </main>
   );
 }
