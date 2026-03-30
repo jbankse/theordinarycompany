@@ -73,7 +73,7 @@ export default function Services() {
       <div ref={triggerRef} className="relative h-[calc(100dvh-68px)]">
         <div 
           ref={sectionRef} 
-          className="flex flex-nowrap h-full brutal-border-b brutal-border-t border-[#121212] box-border"
+          className="flex flex-nowrap h-full brutal-border-b border-[#121212] box-border"
         >
           {services.map((service, i) => (
             <motion.div 
