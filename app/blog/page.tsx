@@ -9,7 +9,7 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <main className="min-h-screen bg-[#FFFFFF] pt-16">
+    <main className="min-h-[100dvh] bg-[#FFFFFF] pt-16">
       <Navbar />
       
       {/* Header Section */}

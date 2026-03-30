@@ -10,7 +10,7 @@ import SchemaOrg from '@/components/SchemaOrg';
 export default function Home() {
   return (
     <SmoothScroll>
-      <main className="relative min-h-screen bg-[#FFFFFF] overflow-x-hidden">
+      <main className="relative min-h-[100dvh] bg-[#FFFFFF] overflow-x-hidden">
         <SchemaOrg />
         <Navbar />
         <Hero />
