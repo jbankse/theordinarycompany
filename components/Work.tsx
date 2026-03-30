@@ -77,7 +77,7 @@ export default function Work() {
       <div ref={triggerRef} className="relative h-[calc(100dvh-68px)]">
         <div 
           ref={sectionRef}
-          className="flex flex-nowrap h-full brutal-border-b border-[#121212] box-border"
+          className="flex flex-nowrap h-full border-[#121212] box-border"
         >
           {projects.map((project, i) => (
             <motion.div 

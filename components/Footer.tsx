@@ -126,7 +126,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
           className="text-left w-fit mb-8 lg:mb-16"
         >
           <Link href="/" className="inline-block w-fit group">
-            <h1 className="font-display font-black text-[19vw] leading-[0.75] tracking-tighter uppercase text-[#FF0000] relative">
+            <h1 className="font-display font-black text-[14vw] md:text-[19vw] leading-[0.75] tracking-tighter uppercase text-[#FF0000] relative">
               ORDINARY
             </h1>
           </Link>
