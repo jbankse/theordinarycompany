@@ -5,11 +5,13 @@ import Services from '@/components/Services';
 import Work from '@/components/Work';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import SchemaOrg from '@/components/SchemaOrg';
 
 export default function Home() {
   return (
     <SmoothScroll>
       <main className="relative min-h-screen bg-[#FFFFFF] overflow-x-hidden">
+        <SchemaOrg />
         <Navbar />
         <Hero />
         <Services />

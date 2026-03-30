@@ -338,13 +338,15 @@ export default function VisualSystems() {
           // We use deterministic pseudo-randomness based on index so it's consistent on mount,
           // but looks scattered. We keep them somewhat away from the edges.
           // Using pixels instead of vw/vh to ensure they stay well within the container bounds
-          const randomX = (Math.sin(i * 13.5) * 200); // -200px to 200px from center
-          const randomY = (Math.cos(i * 27.3) * 150); // -150px to 150px from center
-          const randomRot = Math.sin(i * 5.2) * 45; // -45deg to 45deg rotation
+          // Math.round fixes float serialization mismatch across Node and V8 during Next.js Hydration
+          const randomX = Math.round(Math.sin(i * 13.5) * 200); 
+          const randomY = Math.round(Math.cos(i * 27.3) * 150); 
+          const randomRot = Math.round(Math.sin(i * 5.2) * 45); 
 
           return (
             <div
               key={i}
+              suppressHydrationWarning
               ref={(el) => { letterRefs.current[i] = el; }}
               className="absolute top-1/2 left-1/2 font-display font-black text-6xl md:text-8xl lg:text-[6vw] xl:text-[5vw] leading-none text-[#121212] select-none touch-none pointer-events-none origin-center hover:text-[#FF0000] transition-colors duration-200"
               style={{
