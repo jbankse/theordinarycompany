@@ -2,9 +2,17 @@
 
 import React, { useEffect } from 'react';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Implement GSAP's normalizeScroll to prevent the iOS Safari URL bar from hiding
+    // This stops the viewport height from dynamically changing during scroll.
+    ScrollTrigger.normalizeScroll(true);
+
     const lenis = new Lenis({
       duration: 2.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
