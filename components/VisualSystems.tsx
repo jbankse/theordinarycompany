@@ -66,7 +66,7 @@ export default function VisualSystems() {
         const y = rect.top - containerRect.top + rect.height / 2;
         
         // Get the initial rotation we assigned to the DOM element
-        const randomRot = Math.sin(i * 5.2) * 45;
+        const randomRot = parseFloat((Math.sin(i * 5.2) * 45).toFixed(3));
         
         // Create a dynamic physics body for the letter
         // We make it a solid body so shapes can collide with it
@@ -332,12 +332,11 @@ export default function VisualSystems() {
       <div className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center" key={resetKey}>
         {letters.map((letter, i) => {
           // Generate random initial positions (scrambled)
-          // We use deterministic pseudo-randomness based on index so it's consistent on mount,
-          // but looks scattered. We keep them somewhat away from the edges.
-          // Using pixels instead of vw/vh to ensure they stay well within the container bounds
-          const randomX = (Math.sin(i * 13.5) * 200); // -200px to 200px from center
-          const randomY = (Math.cos(i * 27.3) * 150); // -150px to 150px from center
-          const randomRot = Math.sin(i * 5.2) * 45; // -45deg to 45deg rotation
+          // We use deterministic pseudo-randomness based on index so it's consistent on mount
+          // Using toFixed(3) to avoid hydration mismatches between server and client floating point math
+          const randomX = (Math.sin(i * 13.5) * 200).toFixed(3); // -200px to 200px from center
+          const randomY = (Math.cos(i * 27.3) * 150).toFixed(3); // -150px to 150px from center
+          const randomRot = (Math.sin(i * 5.2) * 45).toFixed(3); // -45deg to 45deg rotation
 
           return (
             <div
