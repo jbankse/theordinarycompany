@@ -14,8 +14,8 @@ export default function VisualSystems() {
   const runnerRef = useRef<Matter.Runner | null>(null);
   const letterRefs = useRef<(HTMLDivElement | null)[]>([]);
   const letterBodiesRef = useRef<Matter.Body[]>([]);
-  
   const [resetKey, setResetKey] = useState(0);
+  const [brushSize, setBrushSize] = useState(6);
 
   // Initialize Physics Engine
   useEffect(() => {
@@ -279,9 +279,12 @@ export default function VisualSystems() {
     // Calculate distance to avoid drawing too many bodies
     const dist = Math.hypot(currentPos.x - lastDrawPos.current.x, currentPos.y - lastDrawPos.current.y);
     
-    if (dist > 5) { // Reduced from 10 to 5 for smoother, tighter lines
+    // Scale the minimal spacing interval based on the brush size for a more continuous stroke
+    const minSpacing = Math.max(2, brushSize * 0.6);
+    
+    if (dist > minSpacing) { 
       // Create a static circle where the user drew
-      const drawBody = Matter.Bodies.circle(currentPos.x, currentPos.y, 6, { // Slightly smaller radius to match tighter spacing
+      const drawBody = Matter.Bodies.circle(currentPos.x, currentPos.y, brushSize, {
         isStatic: true,
         label: 'drawing',
         render: {
@@ -370,10 +373,23 @@ export default function VisualSystems() {
             {isErasing ? 'DRAW' : 'ERASE'}
           </button>
 
-          {/* Color Palette */}
+          {/* Color Palette & Extruded Controls */}
           {!isErasing && (
-            <div className="flex items-center gap-4 ml-6 pointer-events-auto">
-              {[
+            <div className="flex items-center flex-wrap gap-4 ml-2 md:ml-6 pointer-events-auto">
+              <div className="flex items-center gap-3 md:mr-2 border-r-2 border-[#121212]/20 pr-4 md:pr-6">
+                <span className="font-display font-bold text-[10px] md:text-xs tracking-widest text-[#121212] uppercase opacity-70">SIZE</span>
+                <input 
+                  type="range" 
+                  min="2" 
+                  max="40" 
+                  value={brushSize} 
+                  onChange={(e) => setBrushSize(parseInt(e.target.value))}
+                  className="w-16 md:w-24 h-1 bg-[#121212]/20 appearance-none rounded-full outline-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 md:[&::-webkit-slider-thumb]:w-4 md:[&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-[#121212] [&::-webkit-slider-thumb]:rounded-full cursor-pointer hover:[&::-webkit-slider-thumb]:bg-[#FF0000] focus:[&::-webkit-slider-thumb]:bg-[#FF0000] transition-colors"
+                />
+              </div>
+
+              <div className="flex items-center gap-3 md:gap-4">
+                {[
                 { id: 'black', hex: '#121212' },
                 { id: 'red', hex: '#FF0000' },
                 { id: 'yellow', hex: '#FFD700' },
@@ -388,6 +404,7 @@ export default function VisualSystems() {
                   aria-label={`Select ${color.id} color`}
                 />
               ))}
+              </div>
             </div>
           )}
         </div>
