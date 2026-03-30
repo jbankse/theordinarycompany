@@ -52,7 +52,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-[#FFFFFF] pt-16">
+    <main className="min-h-[100dvh] bg-[#FFFFFF] pt-16">
       <Navbar />
       
       {/* Post Header */}

@@ -70,7 +70,7 @@ export default function Services() {
 
   return (
     <section id="services" className="bg-[#FFFFFF] overflow-hidden text-[#121212] brutal-border-b border-[#121212]">
-      <div ref={triggerRef} className="relative h-[calc(100vh-68px)]">
+      <div ref={triggerRef} className="relative h-[calc(100dvh-68px)]">
         <div 
           ref={sectionRef} 
           className="flex flex-nowrap h-full brutal-border-b brutal-border-t border-[#121212] box-border"

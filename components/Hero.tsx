@@ -6,7 +6,7 @@ import VisualSystems from './VisualSystems';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen pt-16 flex flex-col">
+    <section className="relative min-h-[100dvh] pt-16 flex flex-col">
       {/* Top Section */}
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-2">
         {/* Left: Big Numbers & Title */}
@@ -30,7 +30,7 @@ export default function Hero() {
         </div>
 
         {/* Right: Interaction */}
-        <div className="bg-[#121212] text-[#FFFFFF] flex flex-col overflow-hidden relative">
+        <div className="bg-[#121212] text-[#FFFFFF] flex flex-col overflow-hidden relative min-h-[60vh] lg:min-h-0">
           <div className="flex-1 flex items-center justify-center p-8 relative overflow-hidden">
             <VisualSystems />
           </div>

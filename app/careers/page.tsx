@@ -18,7 +18,7 @@ export default function CareersPage() {
 
   return (
     <SmoothScroll>
-      <main className="relative min-h-screen bg-[#FFFFFF] text-[#121212] overflow-x-hidden">
+      <main className="relative min-h-[100dvh] bg-[#FFFFFF] text-[#121212] overflow-x-hidden">
         <Navbar theme="light" />
         
         {/* Extreme Typographical Hero */}
