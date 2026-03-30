@@ -125,8 +125,8 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-left w-fit"
         >
-          <Link href="/" className="inline-block w-fit">
-            <h1 className="font-display font-black text-[19vw] leading-[0.75] tracking-tighter uppercase text-[#FF0000]">
+          <Link href="/" className="inline-block w-fit group">
+            <h1 className="font-display font-black text-[19vw] leading-[0.75] tracking-tighter uppercase text-[#FF0000] relative">
               ORDINARY
             </h1>
           </Link>
