@@ -16,8 +16,8 @@ export default function Hero() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="big-number block text-6xl lg:text-8xl text-[#121212]">01</span>
-            <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-8xl mt-4 leading-none uppercase tracking-tighter break-words">
+            <span className="big-number block text-[clamp(2.5rem,6vw,8rem)] text-[#121212]">01</span>
+            <h1 className="font-display font-black text-[clamp(2.5rem,4.5vw,6rem)] mt-4 leading-none uppercase tracking-tighter">
               PRECISION<br />ARCHITECTURE.
             </h1>
           </motion.div>
@@ -48,9 +48,6 @@ export default function Hero() {
               <span key={i} className="mx-4">STRUCTURE // FUNCTION // FORM //</span>
             ))}
           </div>
-        </div>
-        <div className="px-4 lg:px-8 brutal-border-l brutal-border-t hidden md:flex items-center font-display font-bold text-xs hover:bg-[#121212] hover:text-[#FFFFFF] cursor-pointer transition-colors tracking-widest text-[#121212]">
-          SCROLL_DOWN
         </div>
       </div>
     </section>

@@ -37,20 +37,21 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
             <span className="font-display font-black text-lg md:text-xl tracking-tighter uppercase">ORDINARY</span>
           </Link>
 
+          {/* Spacer to push links/buttons to the right */}
+          <div className={`flex flex-1 border-l-2 ${borderColor}`} />
+
           {/* Desktop Links */}
-          <div className="hidden lg:flex items-stretch flex-1">
+          <div className="hidden lg:flex items-stretch">
             {navLinks.map((link, i) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center px-6 xl:px-8 font-display font-bold text-sm tracking-widest border-r-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-200 ${i === 0 ? `border-l-2 ${borderColor}` : ''}`}
+                className={`flex items-center px-6 xl:px-8 font-display font-bold text-sm tracking-widest border-l-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-200`}
               >
                 {link.name}
               </Link>
             ))}
           </div>
-
-          <div className={`flex lg:hidden flex-1 border-l-2 ${borderColor}`} />
 
           {/* Desktop CTA */}
           <Link 

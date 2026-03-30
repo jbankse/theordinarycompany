@@ -22,7 +22,7 @@ const services = [
   },
   {
     id: '03',
-    title: 'DIGITAL INFRASTRUCTURE',
+    title: 'WEB SYSTEMS',
     description: 'Robust web platforms built to scale. Form meets function.',
     tags: ['WEB', 'PLATFORMS', 'DEPLOY'],
   },
@@ -91,7 +91,7 @@ export default function Services() {
                 </span>
                 
                 <div className="max-w-4xl mx-auto text-center mt-12">
-                  <p className="text-2xl md:text-4xl lg:text-5xl font-medium uppercase leading-tight opacity-90">
+                  <p className="text-[clamp(1.5rem,5vw,3rem)] font-medium uppercase leading-tight opacity-90 break-words">
                     {service.description}
                   </p>
                 </div>
@@ -99,12 +99,12 @@ export default function Services() {
               
               {/* Bottom Title Section */}
               <div className="h-[25vh] md:h-[30vh] p-6 md:p-12 flex flex-col justify-between bg-[#FFFFFF] group-hover:bg-[#121212] group-hover:text-[#FFFFFF] transition-colors duration-300">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                  <h3 className="font-display font-black text-4xl md:text-6xl lg:text-8xl uppercase tracking-tighter leading-none">
+                <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6">
+                  <h3 className="font-display font-black text-[clamp(2.5rem,5.5vw,6rem)] uppercase tracking-tighter leading-none">
                     {service.title}
                   </h3>
                   
-                  <div className="flex flex-wrap gap-2 md:gap-4 justify-start md:justify-end max-w-sm">
+                  <div className="flex flex-wrap items-center gap-2 md:gap-3 justify-start xl:justify-end w-full xl:w-auto mt-4 xl:mt-0">
                     {service.tags.map((tag) => (
                       <span key={tag} className="px-3 py-1 md:px-4 md:py-2 border-2 border-[#121212] group-hover:border-[#FFFFFF] text-xs md:text-sm font-display font-bold tracking-widest bg-[#121212] text-[#FFFFFF] group-hover:bg-[#FFFFFF] group-hover:text-[#121212] transition-colors">
                         {tag}

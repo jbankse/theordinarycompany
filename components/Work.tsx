@@ -110,12 +110,12 @@ export default function Work() {
               
               {/* Title Section */}
               <div className="h-[25vh] md:h-[30vh] p-6 md:p-12 flex flex-col justify-between bg-[#FFFFFF] group-hover:bg-[#F5F5F5] transition-colors duration-300">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                  <h3 className="font-display font-black text-4xl md:text-6xl lg:text-8xl text-[#121212] uppercase tracking-tighter leading-none">
+                <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-4">
+                  <h3 className="font-display font-black text-[clamp(2.5rem,5.5vw,6rem)] text-[#121212] uppercase tracking-tighter leading-none">
                     {project.title}
                   </h3>
                   
-                  <button className="group/btn flex items-center gap-4 w-fit">
+                  <button className="group/btn flex items-center gap-4 w-fit mt-4 xl:mt-0 flex-shrink-0 self-start xl:self-auto">
                     <span className="text-[#121212] text-sm md:text-base font-display font-bold tracking-widest uppercase">
                       View Project
                     </span>

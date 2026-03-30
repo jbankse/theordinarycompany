@@ -29,7 +29,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
             <ul className="space-y-4 lg:space-y-6">
               {['SERVICES', 'WORK', 'CAREERS', 'BLOG', 'CONTACT'].map((item, index) => (
                 <li key={item}>
-                  <Link href={['BLOG', 'CAREERS'].includes(item) ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`} className="font-display font-black text-7xl xl:text-8xl tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
+                  <Link href={['BLOG', 'CAREERS'].includes(item) ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`} className="font-display font-black text-[clamp(2.5rem,5vw,7rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
                     <span className="text-sm md:text-base font-mono mt-2 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{index + 1}</span>
                     {item}
                   </Link>
@@ -42,7 +42,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
             <ul className="space-y-4 lg:space-y-6">
               {['INSTAGRAM', 'LINKEDIN', 'VIMEO', 'TWITTER', 'ARE.NA'].map((item, index) => (
                 <li key={item}>
-                  <Link href="#" className="font-display font-black text-7xl xl:text-8xl tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
+                  <Link href="#" className="font-display font-black text-[clamp(2.5rem,5vw,7rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
                     <span className="text-sm md:text-base font-mono mt-2 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{index + 1}</span>
                     {item}
                   </Link>
@@ -54,7 +54,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
 
         {/* Right Column: Extended SUBMIT_REQUEST Section */}
         {!hideSubmit ? (
-          <div className="bg-[#F5F5F5] flex flex-col justify-center p-8 lg:p-24 border-l-2 border-[#121212]">
+          <div className="bg-[#F5F5F5] flex flex-col justify-center p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212]">
             <button 
               form="contact-form"
               type="submit"
@@ -64,14 +64,14 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
             </button>
           </div>
         ) : (
-          <div className="bg-[#121212] flex flex-col justify-center gap-12 p-8 lg:p-24 border-l-2 border-[#121212] relative overflow-hidden group">
+          <div className="bg-[#121212] flex flex-col justify-center gap-12 p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212] relative overflow-hidden group">
             <div className="absolute inset-0 bg-[#FF0000] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
             
             <div className="relative z-10">
               <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] group-hover:text-[#121212] uppercase block mb-6 opacity-80 transition-colors duration-500">
                 STAY UPDATED
               </span>
-              <h3 className="font-display font-black text-7xl xl:text-8xl tracking-tighter text-[#FFFFFF] group-hover:text-[#121212] uppercase leading-none transition-colors duration-500">
+              <h3 className="font-display font-black text-[clamp(3.5rem,6vw,7rem)] tracking-tighter text-[#FFFFFF] group-hover:text-[#121212] uppercase leading-none transition-colors duration-500">
                 JOIN THE<br />NETWORK
               </h3>
             </div>
@@ -117,13 +117,13 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
       </div>
 
       {/* Bottom Section: Massive Brand */}
-      <div className="relative pt-8 pb-16 lg:pt-16 lg:pb-32 px-6 overflow-hidden bg-[#121212]">
+      <div className="relative pt-8 pb-6 lg:pt-16 lg:pb-12 px-6 lg:px-12 flex flex-col overflow-hidden bg-[#121212]">
         <motion.div 
           initial={{ y: "20%", opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-left w-fit"
+          className="text-left w-fit mb-8 lg:mb-16"
         >
           <Link href="/" className="inline-block w-fit group">
             <h1 className="font-display font-black text-[19vw] leading-[0.75] tracking-tighter uppercase text-[#FF0000] relative">
@@ -132,17 +132,17 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
           </Link>
         </motion.div>
         
-        <div className="absolute bottom-24 left-6 right-6 lg:left-12 lg:right-12 h-px bg-[#FFFFFF]/20" />
+        <div className="h-px w-full bg-[#FFFFFF]/20 mb-6 lg:mb-8" />
         
-        <div className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:left-12 lg:right-12 flex flex-col md:flex-row justify-between items-center md:items-end gap-4 md:gap-0 font-display font-bold text-[8px] md:text-[10px] tracking-widest uppercase text-[#FFFFFF]">
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0 font-display font-bold text-[10px] lg:text-[12px] tracking-widest uppercase text-[#FFFFFF]">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:gap-8">
             <p>© {year} THE ORDINARY COMPANY</p>
-            <div className="flex items-center gap-4 md:gap-8 opacity-60">
+            <div className="flex flex-wrap items-center gap-4 lg:gap-8 opacity-60">
               <Link href="/terms" className="hover:text-[#FF0000] hover:opacity-100 transition-all">TERMS OF SERVICE</Link>
               <Link href="/privacy" className="hover:text-[#FF0000] hover:opacity-100 transition-all">PRIVACY POLICY</Link>
             </div>
           </div>
-          <p>MAKING THE EXTRAORDINARY—ORDINARY.</p>
+          <p className="opacity-60 lg:opacity-100">MAKING THE EXTRAORDINARY—ORDINARY.</p>
         </div>
       </div>
 
