@@ -17,9 +17,9 @@ export default function Hero() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="big-number block text-[clamp(2.5rem,6vw,8rem)] text-[#121212]">01</span>
-            <h1 className="font-display font-normal text-[clamp(2.5rem,4vw,5.5rem)] mt-4 leading-none tracking-tighter">
-              Building Modern<br />Visual Infrastructure.
+            <span className="big-number block text-[clamp(1.5rem,3vw,4rem)] text-[#121212]">01</span>
+            <h1 className="font-display font-normal text-[clamp(2.5rem,4vw,5.5rem)] mt-4 leading-none tracking-tighter uppercase">
+              BUILDING MODERN<br />VISUAL INFRASTRUCTURE<span className="ml-[0.1em]">.</span>
             </h1>
           </motion.div>
           

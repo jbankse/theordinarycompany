@@ -77,7 +77,7 @@ html, body {
 /* Big Numbers */
 .big-number {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 15vw, 12rem);
+  font-size: clamp(3rem, 10vw, 8rem);
   font-weight: 800;
   line-height: 0.8;
   letter-spacing: -0.05em;

@@ -17,11 +17,11 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
   const textColor = isDark ? 'text-[#FFFFFF]' : 'text-[#121212]';
 
   const navLinks = [
-    { name: 'Services', href: '/#services' },
-    { name: 'Work', href: '/#work' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'SERVICES', href: '/#services' },
+    { name: 'WORK', href: '/#work' },
+    { name: 'CAREERS', href: '/careers' },
+    { name: 'BLOG', href: '/blog' },
+    { name: 'CONTACT', href: '/#contact' },
   ];
 
   return (
@@ -59,7 +59,7 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center px-6 xl:px-8 font-display font-semibold text-base tracking-widest border-b-2 border-l-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-200`}
+                className={`flex items-center px-6 xl:px-8 font-display font-semibold text-base tracking-widest border-y-2 border-l-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-200`}
               >
                 {link.name}
               </Link>
@@ -69,9 +69,9 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
           {/* Desktop CTA */}
           <Link 
             href="/#contact"
-            className={`hidden lg:flex items-center px-8 bg-[#FF0000] text-[#121212] font-display font-semibold text-base tracking-widest border-b-2 border-l-2 ${borderColor} hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-200`}
+            className={`hidden lg:flex items-center px-8 bg-[#FF0000] text-[#121212] font-display font-semibold text-base tracking-widest border-y-2 border-l-2 ${borderColor} hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-200`}
           >
-            Contact Us
+            CONTACT US
           </Link>
 
 
@@ -120,7 +120,7 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                   onClick={() => setIsMenuOpen(false)}
                   className="block w-full py-6 text-center bg-[#FF0000] text-[#121212] font-display font-black text-2xl md:text-3xl tracking-widest hover:bg-[#FFFFFF] hover:text-[#121212] transition-colors duration-200"
                 >
-                  Contact Us
+                  CONTACT US
                 </Link>
               </motion.div>
             </div>
