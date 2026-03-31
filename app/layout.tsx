@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${interDisplay.variable} antialiased`}>
       <body suppressHydrationWarning className="bg-[#FFFFFF] text-[#121212] selection:bg-[#121212] selection:text-[#FFFFFF] overflow-x-hidden w-full max-w-[100vw] box-border min-h-[100dvh]">
         {/* Viewport Borders */}
-        <div className="fixed inset-0 border-2 border-[#121212] z-[9999] pointer-events-none hidden md:block" />
+        <div className="fixed inset-0 border-r-2 border-[#121212] z-[9999] pointer-events-none hidden md:block" />
         <SmoothScroll>
           {children}
         </SmoothScroll>

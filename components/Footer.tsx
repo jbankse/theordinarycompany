@@ -23,7 +23,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
       {/* Top Section: Navigation & Submit */}
       <div className="grid grid-cols-1 xl:grid-cols-[2fr_1fr] border-[#FFFFFF]/20 border-t-2 border-[#121212] xl:border-t-0">
         {/* Left Column: Navigation & Social (Moved from right) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 border-b-2 xl:border-b-0 border-r-0 xl:border-r-2 border-[#FFFFFF]/20 bg-[#121212] border-t-2 border-[#121212] xl:border-t-0">
+        <div className="order-2 xl:order-1 grid grid-cols-1 md:grid-cols-2 border-b-2 xl:border-b-0 border-r-0 xl:border-r-2 border-[#FFFFFF]/20 bg-[#121212] border-t-2 border-[#121212] xl:border-t-0">
           <div className="p-6 lg:p-12 border-r-0 md:border-r-2 border-[#FFFFFF]/20">
             <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] uppercase block mb-8 lg:mb-12 opacity-80">NAVIGATION</span>
             <ul className="space-y-4 lg:space-y-6">
@@ -54,17 +54,17 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
 
         {/* Right Column: Extended SUBMIT_REQUEST Section */}
         {!hideSubmit ? (
-          <div className="bg-[#F5F5F5] flex flex-col justify-center p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212]">
+          <div className="order-1 xl:order-2 bg-[#F5F5F5] flex flex-col justify-center p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212]">
             <button 
               form="contact-form"
               type="submit"
-              className="w-full py-8 lg:py-12 bg-[#FF0000] text-[#121212] font-display font-black text-3xl lg:text-5xl tracking-tighter border-[3px] border-[#121212] hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-300 uppercase leading-none"
+              className="w-full py-8 lg:py-12 bg-[#FF0000] text-[#121212] font-display font-black text-3xl lg:text-5xl tracking-tighter hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-300 uppercase leading-none"
             >
               SUBMIT
             </button>
           </div>
         ) : (
-          <div className="bg-[#121212] flex flex-col justify-center gap-12 p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212] relative overflow-hidden group">
+          <div className="order-1 xl:order-2 bg-[#121212] flex flex-col justify-center gap-12 p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212] relative overflow-hidden group">
             <div className="absolute inset-0 bg-[#FF0000] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
             
             <div className="relative z-10">

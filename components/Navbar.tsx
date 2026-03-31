@@ -26,19 +26,32 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-50 ${navBg} border-b-2 border-t-2 ${borderColor} box-border transition-colors duration-300`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 ${navBg} box-border transition-colors duration-300`}>
         <div className="flex items-stretch h-16 w-full box-border">
+          {/* Mobile Menu Toggle (Moved to Left) */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`flex lg:hidden items-center justify-center bg-[#FF0000] text-[#FFFFFF] hover:bg-[#121212] transition-colors duration-200 w-20`}
+            aria-label="Toggle Menu"
+          >
+            {isMenuOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            )}
+          </button>
+
           {/* Logo */}
           <Link 
             href="/" 
-            className={`flex items-center px-4 md:px-6 ${isDark ? 'bg-[#FF0000] hover:bg-[#FFFFFF]' : 'bg-[#121212] hover:bg-[#FF0000] text-[#FFFFFF]'} hover:text-[#121212] transition-colors duration-200 border-l-2 ${borderColor}`}
+            className={`flex items-center px-4 md:px-6 ${isDark ? 'bg-[#FF0000] hover:bg-[#FFFFFF]' : 'bg-[#121212] hover:bg-[#FF0000] text-[#FFFFFF]'} hover:text-[#121212] transition-colors duration-200`}
             style={{ color: isDark ? '#121212' : undefined }}
           >
             <span className="font-display font-black text-lg md:text-xl tracking-tighter uppercase">ORDINARY</span>
           </Link>
 
           {/* Spacer to push links/buttons to the right */}
-          <div className={`flex flex-1 border-l-2 ${borderColor}`} />
+          <div className={`flex flex-1`} />
 
           {/* Desktop Links */}
           <div className="hidden lg:flex items-stretch">
@@ -46,7 +59,7 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center px-6 xl:px-8 font-display font-bold text-sm tracking-widest border-l-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-200`}
+                className={`flex items-center px-6 xl:px-8 font-display font-bold text-sm tracking-widest border-y-2 border-l-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-200`}
               >
                 {link.name}
               </Link>
@@ -56,18 +69,12 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
           {/* Desktop CTA */}
           <Link 
             href="/#contact"
-            className={`hidden lg:flex items-center px-8 bg-[#FF0000] text-[#121212] font-display font-bold text-sm tracking-widest border-l-2 ${borderColor} hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-200`}
+            className={`hidden lg:flex items-center px-8 bg-[#FF0000] text-[#121212] font-display font-bold text-sm tracking-widest border-y-2 border-l-2 ${borderColor} hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-200`}
           >
             CONTACT US
           </Link>
 
-          {/* Mobile Menu Toggle */}
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`flex lg:hidden items-center justify-center px-6 bg-[#FF0000] text-[#FFFFFF] font-display font-bold text-sm tracking-widest border-l-2 ${borderColor} hover:bg-[#121212] transition-colors duration-200 w-24`}
-          >
-            {isMenuOpen ? 'CLOSE' : 'MENU'}
-          </button>
+
         </div>
       </nav>
 
@@ -93,8 +100,9 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                     <Link
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="font-display font-black text-4xl md:text-6xl text-[#FFFFFF] hover:text-[#FF0000] transition-colors block uppercase tracking-tighter border-b border-[#FFFFFF]/20 pb-4"
+                      className="font-display font-black text-4xl md:text-6xl text-[#FFFFFF] hover:text-[#FF0000] transition-colors flex items-start uppercase tracking-tighter border-b border-[#FFFFFF]/20 pb-4 group"
                     >
+                      <span className="text-sm md:text-base font-mono mt-2 md:mt-3 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{i + 1}</span>
                       {link.name}
                     </Link>
                   </motion.div>
