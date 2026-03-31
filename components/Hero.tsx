@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import VisualSystems from './VisualSystems';
 
 export default function Hero() {
@@ -17,14 +18,14 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="big-number block text-[clamp(2.5rem,6vw,8rem)] text-[#121212]">01</span>
-            <h1 className="font-display font-black text-[clamp(2.5rem,4.5vw,6rem)] mt-4 leading-none uppercase tracking-tighter">
-              PRECISION<br />ARCHITECTURE.
+            <h1 className="font-display font-normal text-[clamp(2.5rem,4vw,5.5rem)] mt-4 leading-none tracking-tighter">
+              Building Modern<br />Visual Infrastructure.
             </h1>
           </motion.div>
           
           <div className="mt-12 max-w-md">
             <p className="text-xl font-medium leading-tight uppercase text-[#121212] tracking-tight">
-              Engineering structured digital experiences. Precise, functional, and meticulously designed.
+              We deliver <Link href="/#services" className="text-[#FF0000] underline decoration-2 underline-offset-4 hover:text-[#121212] transition-colors">Visual Infrastructure as a Service (VIaaS)</Link>. Branding, motion design, and content production for modern brands.
             </p>
           </div>
         </div>
@@ -45,7 +46,7 @@ export default function Hero() {
         <div className="flex-1 flex items-center px-4 lg:px-8 brutal-border-t font-display font-bold text-xs tracking-widest overflow-hidden text-[#121212]">
           <div className="marquee-track" style={{ animationDuration: '40s' }}>
             {[...Array(20)].map((_, i) => (
-              <span key={i} className="mx-4">STRUCTURE // FUNCTION // FORM //</span>
+              <span key={i} className="mx-4">BRANDING // MOTION DESIGN // MARKETING // SOCIAL</span>
             ))}
           </div>
         </div>
