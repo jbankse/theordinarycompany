@@ -86,9 +86,6 @@ export default function Services() {
             >
               {/* Top Section */}
               <div className="relative flex-1 p-6 md:p-12 brutal-border-b border-[#121212] bg-[#F5F5F5] group-hover:bg-[#FFFFFF] transition-colors duration-500 flex flex-col justify-center">
-                <span className="absolute top-6 left-6 md:top-8 md:left-8 font-display font-bold text-xl md:text-2xl text-[#FFFFFF] bg-[#121212] px-4 py-1 border-2 border-[#121212]">
-                  {service.id}
-                </span>
                 
                 <div className="max-w-4xl mx-auto text-center mt-12">
                   <p className="text-[clamp(1.5rem,5vw,3rem)] font-medium uppercase leading-tight opacity-90 break-words">

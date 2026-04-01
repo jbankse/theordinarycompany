@@ -29,7 +29,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
             <ul className="space-y-4 lg:space-y-6">
               {['SERVICES', 'WORK', 'CAREERS', 'BLOG', 'CONTACT'].map((item, index) => (
                 <li key={item}>
-                  <Link href={['BLOG', 'CAREERS'].includes(item) ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`} className="font-display font-black text-[clamp(2.5rem,5vw,7rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
+                  <Link href={['BLOG', 'CAREERS'].includes(item) ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`} className="font-display font-black text-[clamp(2.5rem,5vw,5rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
                     <span className="text-sm md:text-base font-mono mt-2 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{index + 1}</span>
                     {item}
                   </Link>
@@ -40,12 +40,18 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
           <div className="p-6 lg:p-12 border-t-2 md:border-t-0 border-[#FFFFFF]/20">
             <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] uppercase block mb-8 lg:mb-12 opacity-80">SOCIAL</span>
             <ul className="space-y-4 lg:space-y-6">
-              {['INSTAGRAM', 'LINKEDIN', 'VIMEO', 'TWITTER', 'ARE.NA'].map((item, index) => (
-                <li key={item}>
-                  <Link href="#" className="font-display font-black text-[clamp(2.5rem,5vw,7rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
+              {[
+                { name: 'INSTAGRAM', url: 'https://instagram.com/stopbeingordinary' },
+                { name: 'LINKEDIN', url: 'https://linkedin.com/company/theordinarycompany' },
+                { name: 'YOUTUBE', url: 'https://youtube.com/theordinarycompany' },
+                { name: 'X', url: 'https://x.com/theordinarycompany' },
+                { name: 'ARE.NA', url: '#' }
+              ].map((item, index) => (
+                <li key={item.name}>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="font-display font-black text-[clamp(2.5rem,5vw,5rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
                     <span className="text-sm md:text-base font-mono mt-2 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{index + 1}</span>
-                    {item}
-                  </Link>
+                    {item.name}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -55,10 +61,34 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
         {/* Right Column: Extended SUBMIT_REQUEST Section */}
         {!hideSubmit ? (
           <div className="order-1 xl:order-2 bg-[#F5F5F5] flex flex-col justify-center p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212]">
+            <label className="flex items-start gap-3 mb-6 cursor-pointer group">
+              <div className="relative flex items-center justify-center mt-0.5">
+                <input 
+                  type="checkbox" 
+                  className="peer appearance-none w-5 h-5 border-2 border-[#121212] bg-transparent checked:bg-[#FF0000] checked:border-[#FF0000] transition-colors cursor-pointer"
+                  required
+                  form="contact-form"
+                />
+                <svg 
+                  className="absolute w-3 h-3 text-[#FFFFFF] opacity-0 peer-checked:opacity-100 pointer-events-none" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="4" 
+                  strokeLinecap="square" 
+                  strokeLinejoin="miter"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <span className="text-[#121212]/60 font-mono text-xs md:text-sm tracking-widest uppercase group-hover:text-[#121212] transition-colors">
+                <span className="text-[#FF0000]">*</span> I AGREE TO THE TERMS OF SERVICE AND PRIVACY POLICY.
+              </span>
+            </label>
             <button 
               form="contact-form"
               type="submit"
-              className="w-full py-8 lg:py-12 bg-[#FF0000] text-[#121212] font-display font-black text-3xl lg:text-5xl tracking-tighter hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-300 uppercase leading-none"
+              className="w-full py-8 lg:py-12 bg-[#FF0000] text-[#121212] font-display font-bold text-3xl lg:text-4xl tracking-tighter hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-300 uppercase leading-none"
             >
               SUBMIT
             </button>
@@ -126,7 +156,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
           className="text-left w-fit mb-8 lg:mb-16"
         >
           <Link href="/" className="inline-block w-fit group">
-            <h1 className="font-display font-black text-[14vw] md:text-[19vw] leading-[0.75] tracking-tighter uppercase text-[#FF0000] relative">
+            <h1 className="font-display font-black text-[18vw] md:text-[19vw] leading-[0.75] tracking-tighter uppercase text-[#FF0000] relative">
               ORDINARY
             </h1>
           </Link>

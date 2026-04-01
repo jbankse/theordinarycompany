@@ -53,23 +53,25 @@ export default function Hero() {
       </div>
       
       {/* Black Bar - Massive Typography Design */}
-      <div className="w-full h-[120px] bg-[#121212] flex items-center justify-between px-4 md:px-8 overflow-hidden relative group cursor-pointer">
+      <div className="w-full h-[120px] bg-[#121212] flex items-center justify-center md:justify-between px-4 md:px-8 overflow-hidden relative group cursor-pointer">
         <div className="absolute inset-0 bg-[#FF0000] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
         
-        <div className="relative z-10 flex items-center justify-between w-full">
-          <span className="font-display font-black text-[#FFFFFF] text-3xl md:text-5xl lg:text-7xl tracking-tighter uppercase group-hover:text-[#121212] transition-colors duration-500">
-            START A PROJECT
-          </span>
-          
+        <div className="relative z-10 flex items-center justify-center md:justify-between w-full">
           <div className="flex items-center gap-4 md:gap-8">
-            <span className="hidden md:block font-mono text-[#FFFFFF]/50 text-sm tracking-widest group-hover:text-[#121212]/70 transition-colors duration-500">
-              AVAILABLE FOR NEW WORK
+            <span className="font-display font-bold text-[#FFFFFF] text-3xl md:text-5xl lg:text-7xl tracking-tighter uppercase group-hover:text-[#121212] transition-colors duration-500">
+              START A PROJECT
             </span>
-            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-[#FFFFFF] flex items-center justify-center group-hover:border-[#121212] transition-colors duration-500">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter" className="text-[#FFFFFF] group-hover:text-[#121212] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500">
+            <div className="w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-[#FFFFFF] flex items-center justify-center group-hover:border-[#121212] transition-colors duration-500 flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter" className="text-[#FFFFFF] group-hover:text-[#121212] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500">
                 <path d="M7 17L17 7M17 7H7M17 7v10"/>
               </svg>
             </div>
+          </div>
+          
+          <div className="hidden md:flex items-center">
+            <span className="font-mono text-[#FFFFFF]/50 text-sm tracking-widest group-hover:text-[#121212]/70 transition-colors duration-500">
+              AVAILABLE FOR NEW WORK
+            </span>
           </div>
         </div>
       </div>
