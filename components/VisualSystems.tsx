@@ -122,10 +122,12 @@ export default function VisualSystems() {
     const spawnPrimitives = () => {
       if (!containerRef.current || !engineRef.current) return;
       const width = containerRef.current.clientWidth;
+      const isMobile = window.innerWidth < 768;
+      const scale = isMobile ? 0.5 : 1;
       
       const shapes = [
         // Red Circle
-        Matter.Bodies.circle(width * 0.2, -50, 80, {
+        Matter.Bodies.circle(width * 0.2, -50, 80 * scale, {
           restitution: 0.6,
           friction: 0.1,
           density: 0.05,
@@ -133,7 +135,7 @@ export default function VisualSystems() {
           label: 'primitive'
         }),
         // Yellow Triangle (Polygon with 3 sides)
-        Matter.Bodies.polygon(width * 0.4, -150, 3, 100, {
+        Matter.Bodies.polygon(width * 0.4, -150, 3, 100 * scale, {
           restitution: 0.4,
           friction: 0.2,
           density: 0.05,
@@ -141,7 +143,7 @@ export default function VisualSystems() {
           label: 'primitive'
         }),
         // Green Square
-        Matter.Bodies.rectangle(width * 0.6, -250, 160, 160, {
+        Matter.Bodies.rectangle(width * 0.6, -250, 160 * scale, 160 * scale, {
           restitution: 0.2,
           friction: 0.3,
           density: 0.05,
@@ -149,7 +151,7 @@ export default function VisualSystems() {
           label: 'primitive'
         }),
         // Blue Rectangle
-        Matter.Bodies.rectangle(width * 0.8, -350, 240, 120, {
+        Matter.Bodies.rectangle(width * 0.8, -350, 240 * scale, 120 * scale, {
           restitution: 0.3,
           friction: 0.2,
           density: 0.05,

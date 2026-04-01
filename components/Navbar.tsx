@@ -31,14 +31,14 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
           {/* Mobile Menu Toggle (Moved to Left) */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`flex lg:hidden items-center justify-center bg-[#FF0000] text-[#FFFFFF] hover:bg-[#121212] transition-colors duration-200 w-20`}
+            className={`flex lg:hidden items-center justify-center bg-[#FF0000] text-[#FFFFFF] hover:bg-[#121212] transition-colors duration-200 w-20 relative`}
             aria-label="Toggle Menu"
           >
-            {isMenuOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-            )}
+            <div className="relative w-5 h-5 flex items-center justify-center">
+              <span className={`absolute h-0.5 w-5 bg-current transform transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`} />
+              <span className={`absolute h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isMenuOpen ? 'w-0 opacity-0' : 'w-5 opacity-100'}`} />
+              <span className={`absolute h-0.5 w-5 bg-current transform transition-all duration-300 ease-in-out ${isMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`} />
+            </div>
           </button>
 
           {/* Logo */}
