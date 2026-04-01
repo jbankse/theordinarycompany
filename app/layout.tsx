@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import SmoothScroll from '@/components/SmoothScroll';
+import CookieBanner from '@/components/CookieBanner';
 
 const aileron = localFont({
   src: [
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll>
           {children}
         </SmoothScroll>
+        <CookieBanner />
       </body>
     </html>
   );
