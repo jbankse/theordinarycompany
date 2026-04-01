@@ -16,6 +16,29 @@ export default function VisualSystems() {
   const letterBodiesRef = useRef<Matter.Body[]>([]);
   const [resetKey, setResetKey] = useState(0);
   const [brushSize, setBrushSize] = useState(6);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  // Handle Fullscreen
+  const toggleFullscreen = () => {
+    if (!containerRef.current) return;
+    
+    if (!document.fullscreenElement) {
+      containerRef.current.requestFullscreen().catch(err => {
+        console.error(`Error attempting to enable fullscreen: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
 
   // Initialize Physics Engine
   useEffect(() => {
@@ -99,10 +122,12 @@ export default function VisualSystems() {
     const spawnPrimitives = () => {
       if (!containerRef.current || !engineRef.current) return;
       const width = containerRef.current.clientWidth;
+      const isMobile = window.innerWidth < 768;
+      const scale = isMobile ? 0.5 : 1;
       
       const shapes = [
         // Red Circle
-        Matter.Bodies.circle(width * 0.2, -50, 80, {
+        Matter.Bodies.circle(width * 0.2, -50, 80 * scale, {
           restitution: 0.6,
           friction: 0.1,
           density: 0.05,
@@ -110,7 +135,7 @@ export default function VisualSystems() {
           label: 'primitive'
         }),
         // Yellow Triangle (Polygon with 3 sides)
-        Matter.Bodies.polygon(width * 0.4, -150, 3, 100, {
+        Matter.Bodies.polygon(width * 0.4, -150, 3, 100 * scale, {
           restitution: 0.4,
           friction: 0.2,
           density: 0.05,
@@ -118,7 +143,7 @@ export default function VisualSystems() {
           label: 'primitive'
         }),
         // Green Square
-        Matter.Bodies.rectangle(width * 0.6, -250, 160, 160, {
+        Matter.Bodies.rectangle(width * 0.6, -250, 160 * scale, 160 * scale, {
           restitution: 0.2,
           friction: 0.3,
           density: 0.05,
@@ -126,7 +151,7 @@ export default function VisualSystems() {
           label: 'primitive'
         }),
         // Blue Rectangle
-        Matter.Bodies.rectangle(width * 0.8, -350, 240, 120, {
+        Matter.Bodies.rectangle(width * 0.8, -350, 240 * scale, 120 * scale, {
           restitution: 0.3,
           friction: 0.2,
           density: 0.05,
@@ -411,12 +436,20 @@ export default function VisualSystems() {
           )}
         </div>
         
-        <button 
-          className="font-display font-bold text-sm tracking-widest text-[#121212] uppercase hover:text-[#FF0000] transition-colors pointer-events-auto"
-          onClick={() => alert("Share functionality coming soon!")}
-        >
-          SHARE
-        </button>
+        <div className="flex items-center gap-4 md:gap-6 pointer-events-auto">
+          <button 
+            className="font-display font-bold text-sm tracking-widest text-[#121212] uppercase hover:text-[#FF0000] transition-colors"
+            onClick={toggleFullscreen}
+          >
+            {isFullscreen ? 'EXIT FULLSCREEN' : 'FULLSCREEN'}
+          </button>
+          <button 
+            className="font-display font-bold text-sm tracking-widest text-[#121212] uppercase hover:text-[#FF0000] transition-colors"
+            onClick={() => alert("Share functionality coming soon!")}
+          >
+            SHARE
+          </button>
+        </div>
       </div>
     </div>
   );

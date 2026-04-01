@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import SimpleNavbar from '@/components/SimpleNavbar';
+import SimpleFooter from '@/components/SimpleFooter';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog';
 import { motion } from 'motion/react';
@@ -9,35 +9,38 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <main className="min-h-[100dvh] bg-[#FFFFFF] pt-16">
-      <Navbar />
+    <main className="relative min-h-[100dvh] bg-[#FFFFFF] clip-path-none pt-24 lg:pt-32">
+      <SimpleNavbar />
       
       {/* Header Section */}
-      <section className="bg-[#F5F5F5] brutal-border-b border-[#121212] p-8 lg:p-16 flex flex-col lg:flex-row justify-between items-end gap-8">
-        <div>
-          <span className="big-number block">03</span>
-          <h1 className="font-display font-black text-6xl lg:text-9xl leading-none uppercase tracking-tighter text-[#121212]">
-            Insights
-          </h1>
-        </div>
-        <div className="max-w-md">
-          <p className="font-mono font-bold text-xs tracking-widest uppercase opacity-50 mb-4 text-[#121212]">
-            Industry Perspectives & Updates
-          </p>
-          <p className="text-xl font-medium uppercase leading-tight text-[#121212]">
-            Defining the future of visual infrastructure through strategic observations and technical expertise.
-          </p>
+      <section className="bg-[#F5F5F5] max-w-[1600px] mx-auto brutal-border-b border-[#121212]">
+        <div className="p-8 lg:p-16 flex flex-col lg:flex-row justify-between items-end gap-8">
+          <div>
+            <span className="big-number block">03</span>
+            <h1 className="font-display font-black text-6xl lg:text-9xl leading-none uppercase tracking-tighter text-[#121212]">
+              Insights
+            </h1>
+          </div>
+          <div className="max-w-md">
+            <p className="font-mono font-bold text-xs tracking-widest uppercase opacity-50 mb-4 text-[#121212]">
+              Industry Perspectives & Updates
+            </p>
+            <p className="text-xl font-medium uppercase leading-tight text-[#121212]">
+              Defining the future of visual infrastructure through strategic observations and technical expertise.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Posts Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <section className="bg-[#FFFFFF]">
+        <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {posts.length > 0 ? (
           posts.map((post, index) => (
             <Link 
               key={post.slug} 
               href={`/blog/${post.slug}`}
-              className="group brutal-border-b border-[#121212] md:brutal-border-r md:even:border-r-0 lg:brutal-border-r lg:[&:nth-child(3n)]:border-r-0 p-8 lg:p-12 hover:bg-[#121212] transition-colors duration-300 flex flex-col justify-between min-h-[400px]"
+              className="group p-8 lg:p-12 hover:bg-[#121212] transition-colors duration-300 flex flex-col justify-between min-h-[400px]"
             >
               <div>
                 <div className="flex justify-between items-start mb-8">
@@ -65,10 +68,11 @@ export default function BlogPage() {
               No articles found
             </p>
           </div>
-        )}
+          )}
+        </div>
       </section>
 
-      <Footer hideSubmit={true} />
+      <SimpleFooter />
     </main>
   );
 }

@@ -14,15 +14,15 @@ export default function Contact() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
           >
-            <span className="big-number block">02</span>
-            <h2 className="font-display font-black text-5xl lg:text-8xl mt-4 leading-none uppercase tracking-tighter">
-              PROJECT<br />INQUIRY
+            <span className="block font-display font-extrabold text-[clamp(2rem,4vw,4rem)] leading-[0.6] tracking-[-0.1em] text-[#121212] md:mb-6">02</span>
+            <h2 className="font-display font-normal text-[clamp(2.5rem,4vw,5.5rem)] mt-4 leading-none uppercase tracking-tighter">
+              PROJECT<br />INQUIRY<span className="ml-[0.1em]">.</span>
             </h2>
           </motion.div>
           
           <div className="mt-12">
             <p className="text-xl font-medium uppercase leading-tight max-w-md text-[#121212]">
-              Provide the structural parameters. We will engineer the solution.
+              Ready to upgrade your visual infrastructure? Drop your project parameters below and we'll engineer a solution.
             </p>
           </div>
         </div>
@@ -31,7 +31,8 @@ export default function Contact() {
         <div className="p-6 lg:p-16 bg-[#F5F5F5] text-[#121212]">
           <form id="contact-form" className="space-y-8 flex flex-col justify-center h-full" onSubmit={(e) => e.preventDefault()}>
             <div className="mb-8 lg:mb-12">
-              <h3 className="font-display font-black text-3xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-none text-[#121212] max-w-2xl">
+              <span className="block font-display font-extrabold text-[clamp(2rem,4vw,4rem)] leading-[0.6] tracking-[-0.1em] text-[#FF0000] md:mb-6">03</span>
+              <h3 className="font-display font-normal text-[clamp(2.5rem,4vw,5.5rem)] uppercase tracking-tighter leading-none text-[#121212] max-w-2xl mt-4">
                 WE'RE EXCITED TO HEAR FROM YOU.
               </h3>
             </div>

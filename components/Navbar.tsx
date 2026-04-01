@@ -31,14 +31,14 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
           {/* Mobile Menu Toggle (Moved to Left) */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`flex lg:hidden items-center justify-center bg-[#FF0000] text-[#FFFFFF] hover:bg-[#121212] transition-colors duration-200 w-20`}
+            className={`flex lg:hidden items-center justify-center bg-[#FF0000] text-[#FFFFFF] hover:bg-[#121212] transition-colors duration-200 w-20 relative`}
             aria-label="Toggle Menu"
           >
-            {isMenuOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-            )}
+            <div className="relative w-5 h-5 flex items-center justify-center">
+              <span className={`absolute h-0.5 w-5 bg-current transform transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`} />
+              <span className={`absolute h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isMenuOpen ? 'w-0 opacity-0' : 'w-5 opacity-100'}`} />
+              <span className={`absolute h-0.5 w-5 bg-current transform transition-all duration-300 ease-in-out ${isMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`} />
+            </div>
           </button>
 
           {/* Logo */}
@@ -59,22 +59,12 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center px-6 xl:px-8 font-display font-bold text-sm tracking-widest border-y-2 border-l-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-200`}
+                className={`flex items-center px-6 xl:px-8 font-display font-semibold text-base tracking-widest border-y-2 border-l-2 ${borderColor} ${textColor} hover:bg-[#FF0000] hover:text-[#121212] transition-colors duration-200`}
               >
                 {link.name}
               </Link>
             ))}
           </div>
-
-          {/* Desktop CTA */}
-          <Link 
-            href="/#contact"
-            className={`hidden lg:flex items-center px-8 bg-[#FF0000] text-[#121212] font-display font-bold text-sm tracking-widest border-y-2 border-l-2 ${borderColor} hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-200`}
-          >
-            CONTACT US
-          </Link>
-
-
         </div>
       </nav>
 
@@ -90,6 +80,9 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
           >
             <div className="flex-1 flex flex-col p-8">
               <div className="flex flex-col gap-6 mt-12">
+                <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] uppercase block mb-2 opacity-80">
+                  NAVIGATION
+                </span>
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.name}
@@ -100,7 +93,7 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                     <Link
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="font-display font-black text-4xl md:text-6xl text-[#FFFFFF] hover:text-[#FF0000] transition-colors flex items-start uppercase tracking-tighter border-b border-[#FFFFFF]/20 pb-4 group"
+                      className="font-display font-black text-4xl md:text-6xl text-[#FFFFFF] hover:text-[#FF0000] transition-colors flex items-start tracking-tighter border-b border-[#FFFFFF]/20 pb-4 group"
                     >
                       <span className="text-sm md:text-base font-mono mt-2 md:mt-3 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{i + 1}</span>
                       {link.name}
@@ -110,7 +103,7 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
               </div>
               
               <motion.div 
-                className="mt-auto"
+                className="mt-auto pt-8"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
@@ -118,9 +111,9 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                 <Link
                   href="/#contact"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block w-full py-6 text-center bg-[#FF0000] text-[#121212] font-display font-black text-2xl md:text-3xl tracking-widest hover:bg-[#FFFFFF] hover:text-[#121212] transition-colors duration-200"
+                  className="flex items-center justify-center w-full py-6 text-center bg-[#FF0000] text-[#121212] font-display font-black text-2xl md:text-3xl tracking-widest hover:bg-[#FFFFFF] hover:text-[#121212] transition-colors duration-200 group"
                 >
-                  CONTACT US
+                  START
                 </Link>
               </motion.div>
             </div>

@@ -10,27 +10,27 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     id: '01',
-    title: 'PRECISION BRANDING',
-    description: 'Constructing the fundamental core of visual identity through systematic design.',
-    tags: ['STRATEGY', 'LOGOTYPE', 'SYSTEMS'],
+    title: 'BRANDING',
+    description: 'We build visual identities that command attention and scale effortlessly.',
+    tags: ['STRATEGY', 'ASSETS', 'DEVELOPMENT'],
   },
   {
     id: '02',
-    title: 'MOTION ARCHITECTURE',
-    description: 'Precision engineered motion graphics & 3D sequences.',
-    tags: ['ANIMATION', 'VFX', 'RENDER'],
+    title: 'MOTION DESIGN',
+    description: 'Dynamic visual sequences engineered to explain, engage, and convert.',
+    tags: ['ANIMATION', 'VFX', 'UI/UX'],
   },
   {
     id: '03',
-    title: 'WEB SYSTEMS',
-    description: 'Robust web platforms built to scale. Form meets function.',
-    tags: ['WEB', 'PLATFORMS', 'DEPLOY'],
+    title: 'SOCIAL',
+    description: 'High-velocity content engines designed to dominate feeds and drive culture.',
+    tags: ['CONTENT', 'MANAGEMENT', 'DEVELOPMENT'],
   },
   {
     id: '04',
-    title: 'SYSTEMATIC GROWTH',
-    description: 'Data-driven growth and systematic market infiltration.',
-    tags: ['GROWTH', 'METRICS', 'CAMPAIGNS'],
+    title: 'MARKETING',
+    description: 'Data-driven campaigns that systematically infiltrate markets and scale revenue.',
+    tags: ['CONTENT', 'MANAGEMENT', 'DEVELOPMENT'],
   },
 ];
 
@@ -86,9 +86,6 @@ export default function Services() {
             >
               {/* Top Section */}
               <div className="relative flex-1 p-6 md:p-12 brutal-border-b border-[#121212] bg-[#F5F5F5] group-hover:bg-[#FFFFFF] transition-colors duration-500 flex flex-col justify-center">
-                <span className="absolute top-6 left-6 md:top-8 md:left-8 font-display font-bold text-xl md:text-2xl text-[#FFFFFF] bg-[#121212] px-4 py-1 border-2 border-[#121212]">
-                  {service.id}
-                </span>
                 
                 <div className="max-w-4xl mx-auto text-center mt-12">
                   <p className="text-[clamp(1.5rem,5vw,3rem)] font-medium uppercase leading-tight opacity-90 break-words">
@@ -98,7 +95,7 @@ export default function Services() {
               </div>
               
               {/* Bottom Title Section */}
-              <div className="h-[25vh] md:h-[30vh] p-6 md:p-12 flex flex-col justify-between bg-[#FFFFFF] group-hover:bg-[#121212] group-hover:text-[#FFFFFF] transition-colors duration-300">
+              <div className="h-[25vh] md:h-[30vh] p-6 md:p-12 flex flex-col justify-between bg-[#FFFFFF] transition-colors duration-300">
                 <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6">
                   <h3 className="font-display font-black text-[clamp(2.5rem,5.5vw,6rem)] uppercase tracking-tighter leading-none">
                     {service.title}
@@ -106,7 +103,7 @@ export default function Services() {
                   
                   <div className="flex flex-wrap items-center gap-2 md:gap-3 justify-start xl:justify-end w-full xl:w-auto mt-4 xl:mt-0">
                     {service.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 md:px-4 md:py-2 border-2 border-[#121212] group-hover:border-[#FFFFFF] text-xs md:text-sm font-display font-bold tracking-widest bg-[#121212] text-[#FFFFFF] group-hover:bg-[#FFFFFF] group-hover:text-[#121212] transition-colors">
+                      <span key={tag} className="px-3 py-1 md:px-4 md:py-2 border-2 border-[#121212] group-hover:border-[#FF0000] text-xs md:text-sm font-display font-bold tracking-widest bg-[#121212] text-[#FFFFFF] group-hover:bg-[#FF0000] group-hover:text-[#121212] transition-colors">
                         {tag}
                       </span>
                     ))}
