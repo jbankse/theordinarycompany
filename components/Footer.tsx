@@ -23,7 +23,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
       {/* Top Section: Navigation & Submit */}
       <div className="grid grid-cols-1 xl:grid-cols-[2fr_1fr] border-[#FFFFFF]/20 border-t-2 border-[#121212] xl:border-t-0">
         {/* Left Column: Navigation & Social (Moved from right) */}
-        <div className="order-2 xl:order-1 grid grid-cols-1 md:grid-cols-2 border-b-2 xl:border-b-0 border-r-0 xl:border-r-2 border-[#FFFFFF]/20 bg-[#121212] border-t-2 border-[#121212] xl:border-t-0">
+        <div className="order-2 xl:order-1 grid grid-cols-1 md:grid-cols-2 border-r-0 xl:border-r-2 border-[#FFFFFF]/20 bg-[#121212] border-t-2 border-[#121212] xl:border-t-0">
           <div className="p-6 lg:p-12 border-r-0 md:border-r-2 border-[#FFFFFF]/20">
             <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] uppercase block mb-8 lg:mb-12 opacity-80">NAVIGATION</span>
             <ul className="space-y-4 lg:space-y-6">

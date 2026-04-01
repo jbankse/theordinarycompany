@@ -80,6 +80,9 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
           >
             <div className="flex-1 flex flex-col p-8">
               <div className="flex flex-col gap-6 mt-12">
+                <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] uppercase block mb-2 opacity-80">
+                  NAVIGATION
+                </span>
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.name}
@@ -98,6 +101,21 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                   </motion.div>
                 ))}
               </div>
+              
+              <motion.div 
+                className="mt-auto pt-8"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                <Link
+                  href="/#contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center justify-center w-full py-6 text-center bg-[#FF0000] text-[#121212] font-display font-black text-2xl md:text-3xl tracking-widest hover:bg-[#FFFFFF] hover:text-[#121212] transition-colors duration-200 group"
+                >
+                  START
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
