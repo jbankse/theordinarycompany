@@ -4,7 +4,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 
-export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean }) {
+
+export default function Footer({ hideSubmit = false, theme = 'dark' }: { hideSubmit?: boolean, theme?: 'dark' | 'light' }) {
   const [time, setTime] = React.useState<string>('');
   const [year, setYear] = React.useState<number>(2026);
 
@@ -18,18 +19,24 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
     return () => clearInterval(interval);
   }, []);
 
+  const isLight = theme === 'light';
+  const bgClass = isLight ? 'bg-[#FFFFFF]' : 'bg-[#121212]';
+  const textClass = isLight ? 'text-[#121212]' : 'text-[#FFFFFF]';
+  const borderClass = isLight ? 'border-[#121212]' : 'border-[#FFFFFF]/20';
+  const mainBorderClass = 'border-[#121212]';
+
   return (
-    <footer className="bg-[#121212] text-[#FFFFFF] relative overflow-hidden">
+    <footer className={`${bgClass} ${textClass} relative overflow-hidden ${isLight ? 'brutal-border-t' : ''}`}>
       {/* Top Section: Navigation & Submit */}
-      <div className="grid grid-cols-1 xl:grid-cols-[2fr_1fr] border-[#FFFFFF]/20 border-t-2 border-[#121212] xl:border-t-0">
+      <div className={`grid grid-cols-1 xl:grid-cols-[2fr_1fr] ${isLight ? mainBorderClass : borderClass} border-t-2 xl:border-t-0`}>
         {/* Left Column: Navigation & Social (Moved from right) */}
-        <div className="order-2 xl:order-1 grid grid-cols-1 md:grid-cols-2 border-r-0 xl:border-r-2 border-[#FFFFFF]/20 bg-[#121212] border-t-2 border-[#121212] xl:border-t-0">
-          <div className="p-6 lg:p-12 border-r-0 md:border-r-2 border-[#FFFFFF]/20">
-            <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] uppercase block mb-8 lg:mb-12 opacity-80">NAVIGATION</span>
+        <div className={`order-2 xl:order-1 grid grid-cols-1 md:grid-cols-2 border-b-2 xl:border-b-0 border-r-0 xl:border-r-2 ${isLight ? mainBorderClass : borderClass} ${bgClass} border-t-2 xl:border-t-0`}>
+          <div className={`p-6 lg:p-12 border-r-0 md:border-r-2 ${isLight ? mainBorderClass : borderClass}`}>
+            <span className={`font-display font-bold text-sm md:text-base tracking-widest ${textClass} uppercase block mb-8 lg:mb-12 opacity-80`}>NAVIGATION</span>
             <ul className="space-y-4 lg:space-y-6">
               {['SERVICES', 'WORK', 'CAREERS', 'BLOG', 'CONTACT'].map((item, index) => (
                 <li key={item}>
-                  <Link href={['BLOG', 'CAREERS'].includes(item) ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`} className="font-display font-black text-[clamp(2.5rem,5vw,5rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
+                  <Link href={['BLOG', 'CAREERS'].includes(item) ? `/${item.toLowerCase()}` : `/#${item.toLowerCase()}`} className={`font-display font-black text-[clamp(2.5rem,5vw,5rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group`}>
                     <span className="text-sm md:text-base font-mono mt-2 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{index + 1}</span>
                     {item}
                   </Link>
@@ -37,8 +44,8 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
               ))}
             </ul>
           </div>
-          <div className="p-6 lg:p-12 border-t-2 md:border-t-0 border-[#FFFFFF]/20">
-            <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] uppercase block mb-8 lg:mb-12 opacity-80">SOCIAL</span>
+          <div className={`p-6 lg:p-12 border-t-2 md:border-t-0 ${isLight ? mainBorderClass : borderClass}`}>
+            <span className={`font-display font-bold text-sm md:text-base tracking-widest ${textClass} uppercase block mb-8 lg:mb-12 opacity-80`}>SOCIAL</span>
             <ul className="space-y-4 lg:space-y-6">
               {[
                 { name: 'INSTAGRAM', url: 'https://instagram.com/stopbeingordinary' },
@@ -48,7 +55,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
                 { name: 'ARE.NA', url: '#' }
               ].map((item, index) => (
                 <li key={item.name}>
-                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="font-display font-black text-[clamp(2.5rem,5vw,5rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group">
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className={`font-display font-black text-[clamp(2.5rem,5vw,5rem)] tracking-tighter hover:text-[#FF0000] transition-colors flex items-start leading-none py-1 group`}>
                     <span className="text-sm md:text-base font-mono mt-2 mr-4 opacity-50 group-hover:opacity-100 transition-opacity tracking-normal">0{index + 1}</span>
                     {item.name}
                   </a>
@@ -60,7 +67,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
 
         {/* Right Column: Extended SUBMIT_REQUEST Section */}
         {!hideSubmit ? (
-          <div className="order-1 xl:order-2 bg-[#F5F5F5] flex flex-col justify-center p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212]">
+          <div className={`order-1 xl:order-2 ${isLight ? 'bg-[#F5F5F5]' : 'bg-[#F5F5F5]'} flex flex-col justify-center p-8 lg:p-24 border-l-0 xl:border-l-2 ${mainBorderClass}`}>
             <label className="flex items-start gap-3 mb-6 cursor-pointer group">
               <div className="relative flex items-center justify-center mt-0.5">
                 <input 
@@ -88,37 +95,37 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
             <button 
               form="contact-form"
               type="submit"
-              className="w-full py-8 lg:py-12 bg-[#FF0000] text-[#121212] font-display font-bold text-3xl lg:text-4xl tracking-tighter hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-300 uppercase leading-none"
+              className={`w-full py-8 lg:py-12 bg-[#FF0000] text-[#121212] font-display font-bold text-3xl lg:text-4xl tracking-tighter hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-300 uppercase leading-none`}
             >
               SUBMIT
             </button>
           </div>
         ) : (
-          <div className="order-1 xl:order-2 bg-[#FF0000] flex flex-col justify-start gap-12 p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212] relative overflow-hidden group">
-            <div className="absolute inset-0 bg-[#121212] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+          <div className={`order-1 xl:order-2 bg-[#FF0000] flex flex-col justify-start gap-12 p-8 lg:p-24 border-l-0 xl:border-l-2 ${mainBorderClass} relative overflow-hidden group`}>
+            <div className={`absolute inset-0 ${isLight ? 'bg-[#121212]' : 'bg-[#121212]'} translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out`} />
             
             <div className="relative z-10">
-              <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#121212] group-hover:text-[#FFFFFF] uppercase block mb-6 opacity-80 transition-colors duration-500">
+              <span className={`font-display font-bold text-sm md:text-base tracking-widest text-[#121212] group-hover:text-[#FFFFFF] uppercase block mb-6 opacity-80 transition-colors duration-500`}>
                 STAY UPDATED
               </span>
-              <h3 className="font-display font-black text-[clamp(3.5rem,6vw,7rem)] tracking-tighter text-[#121212] group-hover:text-[#FFFFFF] uppercase leading-none transition-colors duration-500">
+              <h3 className={`font-display font-black text-[clamp(3.5rem,6vw,7rem)] tracking-tighter text-[#121212] group-hover:text-[#FFFFFF] uppercase leading-none transition-colors duration-500`}>
                 JOIN THE<br />NETWORK
               </h3>
             </div>
 
             <form className="relative z-10 flex flex-col gap-4 mt-auto" onSubmit={(e) => e.preventDefault()}>
               <div>
-                <label className="font-display font-bold text-xs tracking-widest text-[#121212] group-hover:text-[#FFFFFF] uppercase transition-colors duration-500 block mb-4">EMAIL ADDRESS</label>
+                <label className={`font-display font-bold text-xs tracking-widest text-[#121212] group-hover:text-[#FFFFFF] uppercase transition-colors duration-500 block mb-4`}>EMAIL ADDRESS</label>
                 <input 
                   type="email" 
                   placeholder="ENTER EMAIL ADDRESS"
-                  className="w-full bg-transparent border-[3px] border-[#121212] group-hover:border-[#FFFFFF] p-4 font-display font-bold text-lg md:text-xl text-[#121212] group-hover:text-[#FFFFFF] placeholder:text-[#121212]/40 group-hover:placeholder:text-[#FFFFFF]/40 focus:bg-[#FFFFFF] focus:text-[#121212] focus:placeholder:text-[#121212]/40 outline-none transition-colors duration-500"
+                  className={`w-full bg-transparent border-[3px] border-[#121212] group-hover:border-[#FFFFFF] p-4 font-display font-bold text-lg md:text-xl text-[#121212] group-hover:text-[#FFFFFF] placeholder:text-[#121212]/40 group-hover:placeholder:text-[#FFFFFF]/40 focus:bg-[#FFFFFF] focus:text-[#121212] focus:placeholder:text-[#121212]/40 outline-none transition-colors duration-500`}
                   required
                 />
               </div>
               <button 
                 type="submit"
-                className="w-full py-6 lg:py-8 bg-[#121212] text-[#FFFFFF] font-display font-black text-2xl lg:text-3xl tracking-tighter border-[3px] border-[#121212] group-hover:border-[#FFFFFF] hover:!bg-[#FFFFFF] hover:!text-[#121212] transition-all duration-300 uppercase leading-none text-center"
+                className={`w-full py-6 lg:py-8 bg-[#121212] text-[#FFFFFF] font-display font-black text-2xl lg:text-3xl tracking-tighter border-[3px] border-[#121212] group-hover:border-[#FFFFFF] hover:!bg-[#FFFFFF] hover:!text-[#121212] transition-all duration-300 uppercase leading-none text-center`}
               >
                 SUBSCRIBE
               </button>
@@ -128,12 +135,12 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
       </div>
 
       {/* Middle Section: Hardware Details */}
-      <div className="grid grid-cols-1 md:grid-cols-3 border-t-2 border-b-2 border-[#FFFFFF]/20 text-[10px] font-mono tracking-widest uppercase bg-[#121212]">
-        <div className="p-6 border-b-2 md:border-b-0 md:border-r-2 border-[#FFFFFF]/20 flex justify-between items-center">
+      <div className={`grid grid-cols-1 md:grid-cols-3 border-t-2 border-b-2 ${isLight ? mainBorderClass : borderClass} text-[10px] font-mono tracking-widest uppercase ${bgClass}`}>
+        <div className={`p-6 border-b-2 md:border-b-0 md:border-r-2 ${isLight ? mainBorderClass : borderClass} flex justify-between items-center`}>
           <span className="opacity-40">LOCATION</span>
           <span>NEW_YORK // NY</span>
         </div>
-        <div className="p-6 border-b-2 md:border-b-0 md:border-r-2 border-[#FFFFFF]/20 flex justify-between items-center">
+        <div className={`p-6 border-b-2 md:border-b-0 md:border-r-2 ${isLight ? mainBorderClass : borderClass} flex justify-between items-center`}>
           <span className="opacity-40">STATUS</span>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-[#0000FF] animate-pulse" />
@@ -147,7 +154,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
       </div>
 
       {/* Bottom Section: Massive Brand */}
-      <div className="relative pt-8 pb-6 lg:pt-16 lg:pb-12 px-6 lg:px-12 flex flex-col overflow-hidden bg-[#121212]">
+      <div className={`relative pt-8 pb-6 lg:pt-16 lg:pb-12 px-6 lg:px-12 flex flex-col overflow-hidden ${bgClass}`}>
         <motion.div 
           initial={{ y: "20%", opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -162,9 +169,9 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
           </Link>
         </motion.div>
         
-        <div className="h-px w-full bg-[#FFFFFF]/20 mb-6 lg:mb-8" />
+        <div className={`h-[2px] w-full ${isLight ? mainBorderClass : borderClass} mb-6 lg:mb-8`} />
         
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0 font-display font-bold text-[10px] lg:text-[12px] tracking-widest uppercase text-[#FFFFFF]">
+        <div className={`flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0 font-display font-bold text-[10px] lg:text-[12px] tracking-widest uppercase ${textClass}`}>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:gap-8">
             <p>© {year} THE ORDINARY COMPANY</p>
             <div className="flex flex-wrap items-center gap-4 lg:gap-8 opacity-60">
@@ -177,7 +184,7 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
       </div>
 
       {/* Background Grid Accent */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.05] bg-[linear-gradient(to_right,#FFFFFF12_1px,transparent_1px),linear-gradient(to_bottom,#FFFFFF12_1px,transparent_1px)] bg-[size:40px_40px]" />
+      <div className={`absolute inset-0 pointer-events-none opacity-[0.05] bg-[linear-gradient(to_right,${isLight ? '#121212' : '#FFFFFF'}12_1px,transparent_1px),linear-gradient(to_bottom,${isLight ? '#121212' : '#FFFFFF'}12_1px,transparent_1px)] bg-[size:40px_40px]`} />
     </footer>
   );
 }
