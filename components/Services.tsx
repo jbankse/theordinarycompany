@@ -10,27 +10,27 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     id: '01',
-    title: 'PRECISION BRANDING',
-    description: 'Constructing the fundamental core of visual identity through systematic design.',
-    tags: ['STRATEGY', 'LOGOTYPE', 'SYSTEMS'],
+    title: 'BRANDING',
+    description: 'We build visual identities that command attention and scale effortlessly.',
+    tags: ['STRATEGY', 'ASSETS', 'DEVELOPMENT'],
   },
   {
     id: '02',
-    title: 'MOTION ARCHITECTURE',
-    description: 'Precision engineered motion graphics & 3D sequences.',
-    tags: ['ANIMATION', 'VFX', 'RENDER'],
+    title: 'MOTION DESIGN',
+    description: 'Dynamic visual sequences engineered to explain, engage, and convert.',
+    tags: ['ANIMATION', 'VFX', 'UI/UX'],
   },
   {
     id: '03',
-    title: 'WEB SYSTEMS',
-    description: 'Robust web platforms built to scale. Form meets function.',
-    tags: ['WEB', 'PLATFORMS', 'DEPLOY'],
+    title: 'SOCIAL',
+    description: 'High-velocity content engines designed to dominate feeds and drive culture.',
+    tags: ['CONTENT', 'MANAGEMENT', 'DEVELOPMENT'],
   },
   {
     id: '04',
-    title: 'SYSTEMATIC GROWTH',
-    description: 'Data-driven growth and systematic market infiltration.',
-    tags: ['GROWTH', 'METRICS', 'CAMPAIGNS'],
+    title: 'MARKETING',
+    description: 'Data-driven campaigns that systematically infiltrate markets and scale revenue.',
+    tags: ['CONTENT', 'MANAGEMENT', 'DEVELOPMENT'],
   },
 ];
 
