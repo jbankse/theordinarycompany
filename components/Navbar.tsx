@@ -65,16 +65,6 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
               </Link>
             ))}
           </div>
-
-          {/* Desktop CTA */}
-          <Link 
-            href="/#contact"
-            className={`hidden lg:flex items-center px-8 bg-[#FF0000] text-[#121212] font-display font-semibold text-base tracking-widest border-y-2 border-l-2 ${borderColor} hover:bg-[#121212] hover:text-[#FFFFFF] transition-colors duration-200`}
-          >
-            CONTACT US
-          </Link>
-
-
         </div>
       </nav>
 
@@ -108,21 +98,6 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                   </motion.div>
                 ))}
               </div>
-              
-              <motion.div 
-                className="mt-auto"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6 }}
-              >
-                <Link
-                  href="/#contact"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block w-full py-6 text-center bg-[#FF0000] text-[#121212] font-display font-black text-2xl md:text-3xl tracking-widest hover:bg-[#FFFFFF] hover:text-[#121212] transition-colors duration-200"
-                >
-                  CONTACT US
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}
