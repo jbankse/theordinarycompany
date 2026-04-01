@@ -30,7 +30,7 @@ export default function Footer({ hideSubmit = false, theme = 'dark' }: { hideSub
       {/* Top Section: Navigation & Submit */}
       <div className={`grid grid-cols-1 xl:grid-cols-[2fr_1fr] ${isLight ? mainBorderClass : borderClass} border-t-2 xl:border-t-0`}>
         {/* Left Column: Navigation & Social (Moved from right) */}
-        <div className={`order-2 xl:order-1 grid grid-cols-1 md:grid-cols-2 border-b-2 xl:border-b-0 border-r-0 xl:border-r-2 ${isLight ? mainBorderClass : borderClass} ${bgClass} border-t-2 xl:border-t-0`}>
+        <div className={`order-2 xl:order-1 grid grid-cols-1 md:grid-cols-2 border-r-0 xl:border-r-2 ${isLight ? mainBorderClass : borderClass} ${bgClass} border-t-2 xl:border-t-0`}>
           <div className={`p-6 lg:p-12 border-r-0 md:border-r-2 ${isLight ? mainBorderClass : borderClass}`}>
             <span className={`font-display font-bold text-sm md:text-base tracking-widest ${textClass} uppercase block mb-8 lg:mb-12 opacity-80`}>NAVIGATION</span>
             <ul className="space-y-4 lg:space-y-6">
@@ -169,7 +169,7 @@ export default function Footer({ hideSubmit = false, theme = 'dark' }: { hideSub
           </Link>
         </motion.div>
         
-        <div className={`h-[2px] w-full ${isLight ? mainBorderClass : borderClass} mb-6 lg:mb-8`} />
+        <div className={`h-[2px] w-full ${isLight ? 'bg-[#121212]' : 'bg-[#FFFFFF]/20'} mb-6 lg:mb-8`} />
         
         <div className={`flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0 font-display font-bold text-[10px] lg:text-[12px] tracking-widest uppercase ${textClass}`}>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:gap-8">

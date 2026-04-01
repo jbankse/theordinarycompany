@@ -19,7 +19,7 @@ export default function Hero() {
           >
             <span className="block font-display font-extrabold text-[clamp(2rem,4vw,4rem)] leading-[0.6] tracking-[-0.1em] text-[#121212] md:mb-6">01</span>
             <h1 className="font-display font-normal text-[clamp(2.5rem,4vw,5.5rem)] mt-4 leading-none tracking-tighter uppercase">
-              BUILDING MODERN<br />VISUAL INFRASTRUCTURE<span className="ml-[0.1em]">.</span>
+              BUILDING VISUAL INFRASTRUCTURE<br />FOR MODERN COMPANIES<span className="ml-[0.1em]">.</span>
             </h1>
           </motion.div>
           
@@ -61,9 +61,9 @@ export default function Hero() {
             <span className="font-display font-bold text-[#FFFFFF] text-3xl md:text-5xl lg:text-7xl tracking-tighter uppercase group-hover:text-[#121212] transition-colors duration-500">
               START A PROJECT
             </span>
-            <div className="w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-[#FFFFFF] flex items-center justify-center group-hover:border-[#121212] transition-colors duration-500 flex-shrink-0">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter" className="text-[#FFFFFF] group-hover:text-[#121212] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500">
-                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            <div className="flex items-center justify-center transition-colors duration-500 flex-shrink-0 ml-4">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter" className="text-[#FFFFFF] group-hover:text-[#121212] group-hover:translate-x-2 transition-all duration-500">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </div>
           </div>
