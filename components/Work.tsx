@@ -117,7 +117,7 @@ export default function Work() {
               </Link>
               
               {/* Title Section */}
-              <div className="h-[30vh] md:h-[35vh] p-6 md:p-12 flex flex-col justify-between bg-[#FFFFFF] group-hover:bg-[#F5F5F5] transition-colors duration-300">
+              <div className="flex-shrink-0 min-h-[30vh] md:min-h-[35vh] p-6 md:p-12 flex flex-col justify-between bg-[#FFFFFF] group-hover:bg-[#F5F5F5] transition-colors duration-300">
                 <div className="flex flex-col h-full justify-between">
                   <Link href={article.href} className="block transition-colors">
                     <h3 className="font-display font-black text-[clamp(2rem,4.5vw,5rem)] text-inherit uppercase tracking-tighter leading-none max-w-4xl">
