@@ -14,7 +14,7 @@ export default function CookieBanner() {
 
     if (accepted) return;
 
-    // Handle scroll to show banner after 20% scroll
+    // Handle scroll to show banner after 5% scroll
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -23,7 +23,8 @@ export default function CookieBanner() {
       // Calculate percentage of the scrollable area
       const scrollPercentage = (scrollPosition / (documentHeight - windowHeight)) * 100;
       
-      if (scrollPercentage > 10 && !showBanner) {
+      // Changed to 5% to ensure it shows up almost immediately upon interaction
+      if (scrollPercentage > 5 && !showBanner) {
         setShowBanner(true);
       }
     };
@@ -56,7 +57,7 @@ export default function CookieBanner() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="fixed bottom-0 left-0 w-full z-50"
         >
-          <div className="w-full bg-[#FF0000] flex flex-col md:flex-row items-start md:items-center justify-between p-6 md:p-8 border-t-[3px] border-[#121212] gap-6 md:gap-12">
+          <div className="w-full bg-[#FF0000] flex flex-col md:flex-row items-start md:items-center justify-between p-6 md:p-8 gap-6 md:gap-12">
             
             <div className="max-w-4xl">
               <h3 className="font-display font-bold text-[#121212] text-xl md:text-3xl tracking-tighter uppercase mb-3">
