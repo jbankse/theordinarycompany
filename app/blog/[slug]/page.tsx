@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import SimpleNavbar from '@/components/SimpleNavbar';
+import SimpleFooter from '@/components/SimpleFooter';
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
 import { notFound } from 'next/navigation';
 import Markdown from 'react-markdown';
@@ -52,42 +52,45 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <main className="min-h-[100dvh] bg-[#FFFFFF] pt-16">
-      <Navbar />
+    <main className="relative min-h-[100dvh] bg-[#FFFFFF] clip-path-none pt-24 lg:pt-32">
+      <SimpleNavbar />
       
       {/* Post Header */}
       <article>
-        <header className="brutal-border-b border-[#121212] p-8 lg:p-24 bg-[#F5F5F5] text-[#121212]">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8 text-sm font-mono font-bold uppercase tracking-widest opacity-80">
-              <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
-              <span>•</span>
-              <span>By {post.author}</span>
+        <header className="w-full bg-[#FFFFFF] text-[#121212]">
+          <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 pt-16 pb-16">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center gap-4 mb-8 text-xs font-mono font-bold tracking-widest opacity-80">
+                <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+                <span>•</span>
+                <span>By {post.author}</span>
+              </div>
+              <h1 className="font-display font-black text-[clamp(3rem,5vw,5rem)] leading-[1.1] tracking-tight mb-8 text-[#121212]">
+                {post.title}
+              </h1>
+              <p className="text-lg lg:text-xl font-medium leading-relaxed max-w-3xl opacity-80 text-[#121212]">
+                {post.excerpt}
+              </p>
             </div>
-            <h1 className="font-display font-black text-5xl lg:text-7xl leading-[1.1] uppercase tracking-tighter mb-8">
-              {post.title}
-            </h1>
-            <p className="text-xl lg:text-2xl font-medium leading-relaxed max-w-3xl opacity-90 uppercase">
-              {post.excerpt}
-            </p>
           </div>
         </header>
 
         {/* Post Content */}
-        <section className="p-8 lg:p-24 brutal-border-b border-[#121212] bg-[#FFFFFF]">
-          <div className="max-w-3xl mx-auto">
-            <div className="prose prose-xl max-w-none prose-headings:font-display prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tighter prose-headings:text-[#121212] prose-p:font-medium prose-p:text-[#121212]/90 prose-a:text-[#FF0000] prose-a:no-underline hover:prose-a:underline prose-strong:font-black prose-strong:text-[#121212]">
-              <div className="font-sans text-lg lg:text-xl leading-relaxed space-y-8 text-[#121212]/90">
+        <section className="w-full bg-[#FFFFFF]">
+          <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 py-16">
+            <div className="max-w-4xl mx-auto pt-16 border-t border-[#121212]/10">
+            <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-[#121212] prose-p:font-sans prose-p:font-medium prose-p:text-[#121212]/80 prose-a:text-[#FF0000] prose-a:no-underline hover:prose-a:underline prose-strong:font-black prose-strong:text-[#121212]">
+              <div className="font-sans text-lg leading-relaxed space-y-8 text-[#121212]/80">
                 <Markdown>{post.content}</Markdown>
               </div>
             </div>
             
-            <div className="mt-24 pt-12 border-t-[3px] border-[#121212]">
+            <div className="mt-24 pt-12 border-t border-[#121212]/10">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
-                <h3 className="font-display font-black text-3xl uppercase tracking-tighter text-[#121212]">Continue Reading</h3>
+                <h3 className="font-sans font-bold text-2xl tracking-tight text-[#121212]">Continue Reading</h3>
                 <Link 
                   href="/blog"
-                  className="font-display text-sm tracking-widest uppercase hover:text-[#FF0000] transition-colors font-bold border-b-[3px] border-[#121212] hover:border-[#FF0000] pb-1 text-[#121212]"
+                  className="font-sans text-sm font-bold tracking-widest hover:text-[#FF0000] transition-colors text-[#121212]"
                 >
                   View All Insights
                 </Link>
@@ -100,26 +103,27 @@ export default async function PostPage({ params }: PostPageProps) {
                     <Link 
                       key={otherPost.slug} 
                       href={`/blog/${otherPost.slug}`}
-                      className="group block p-6 md:p-8 border-[3px] border-[#121212] hover:bg-[#121212] transition-colors duration-300 bg-[#FFFFFF]"
+                      className="group block p-6 md:p-8 border border-[#121212]/10 hover:border-[#121212] transition-colors duration-300 bg-[#FFFFFF]"
                     >
-                      <time dateTime={otherPost.date} className="font-mono font-bold text-[10px] tracking-widest opacity-60 uppercase block mb-4 group-hover:text-[#FFFFFF] transition-colors">
+                      <time dateTime={otherPost.date} className="font-mono font-bold text-[10px] tracking-widest opacity-60 block mb-4 group-hover:text-[#121212] transition-colors">
                         {new Date(otherPost.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                       </time>
-                      <h4 className="font-display font-black text-2xl uppercase tracking-tighter leading-tight mb-4 group-hover:text-[#FFFFFF] transition-colors text-[#121212]">
+                      <h4 className="font-sans font-bold text-xl tracking-tight leading-tight mb-4 group-hover:text-[#FF0000] transition-colors text-[#121212]">
                         {otherPost.title}
                       </h4>
-                      <p className="text-sm font-medium uppercase opacity-80 group-hover:opacity-100 group-hover:text-[#FFFFFF] transition-all line-clamp-2 text-[#121212]">
+                      <p className="text-sm font-sans font-medium opacity-80 transition-all line-clamp-2 text-[#121212]">
                         {otherPost.excerpt}
                       </p>
                     </Link>
                   ))}
+              </div>
               </div>
             </div>
           </div>
         </section>
       </article>
 
-      <Footer hideSubmit={true} />
+      <SimpleFooter />
     </main>
   );
 }
