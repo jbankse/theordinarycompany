@@ -94,31 +94,31 @@ export default function Footer({ hideSubmit = false }: { hideSubmit?: boolean })
             </button>
           </div>
         ) : (
-          <div className="order-1 xl:order-2 bg-[#121212] flex flex-col justify-center gap-12 p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212] relative overflow-hidden group">
-            <div className="absolute inset-0 bg-[#FF0000] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+          <div className="order-1 xl:order-2 bg-[#FF0000] flex flex-col justify-start gap-12 p-8 lg:p-24 border-l-0 xl:border-l-2 border-[#121212] relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[#121212] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
             
             <div className="relative z-10">
-              <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#FFFFFF] group-hover:text-[#121212] uppercase block mb-6 opacity-80 transition-colors duration-500">
+              <span className="font-display font-bold text-sm md:text-base tracking-widest text-[#121212] group-hover:text-[#FFFFFF] uppercase block mb-6 opacity-80 transition-colors duration-500">
                 STAY UPDATED
               </span>
-              <h3 className="font-display font-black text-[clamp(3.5rem,6vw,7rem)] tracking-tighter text-[#FFFFFF] group-hover:text-[#121212] uppercase leading-none transition-colors duration-500">
+              <h3 className="font-display font-black text-[clamp(3.5rem,6vw,7rem)] tracking-tighter text-[#121212] group-hover:text-[#FFFFFF] uppercase leading-none transition-colors duration-500">
                 JOIN THE<br />NETWORK
               </h3>
             </div>
 
-            <form className="relative z-10 flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="relative z-10 flex flex-col gap-4 mt-auto" onSubmit={(e) => e.preventDefault()}>
               <div>
-                <label className="font-display font-bold text-xs tracking-widest text-[#FFFFFF] group-hover:text-[#121212] uppercase transition-colors duration-500 block mb-4">EMAIL ADDRESS</label>
+                <label className="font-display font-bold text-xs tracking-widest text-[#121212] group-hover:text-[#FFFFFF] uppercase transition-colors duration-500 block mb-4">EMAIL ADDRESS</label>
                 <input 
                   type="email" 
                   placeholder="ENTER EMAIL ADDRESS"
-                  className="w-full bg-transparent border-[3px] border-[#FFFFFF] group-hover:border-[#121212] p-4 font-display font-bold text-lg md:text-xl text-[#FFFFFF] group-hover:text-[#121212] placeholder:text-[#FFFFFF]/40 group-hover:placeholder:text-[#121212]/40 focus:bg-[#FFFFFF] focus:text-[#121212] focus:placeholder:text-[#121212]/40 outline-none transition-colors duration-500"
+                  className="w-full bg-transparent border-[3px] border-[#121212] group-hover:border-[#FFFFFF] p-4 font-display font-bold text-lg md:text-xl text-[#121212] group-hover:text-[#FFFFFF] placeholder:text-[#121212]/40 group-hover:placeholder:text-[#FFFFFF]/40 focus:bg-[#FFFFFF] focus:text-[#121212] focus:placeholder:text-[#121212]/40 outline-none transition-colors duration-500"
                   required
                 />
               </div>
               <button 
                 type="submit"
-                className="w-full py-6 lg:py-8 bg-[#FFFFFF] text-[#121212] font-display font-black text-2xl lg:text-3xl tracking-tighter border-[3px] border-[#FFFFFF] group-hover:border-[#121212] hover:!bg-[#121212] hover:!text-[#FFFFFF] transition-all duration-300 uppercase leading-none text-center"
+                className="w-full py-6 lg:py-8 bg-[#121212] text-[#FFFFFF] font-display font-black text-2xl lg:text-3xl tracking-tighter border-[3px] border-[#121212] group-hover:border-[#FFFFFF] hover:!bg-[#FFFFFF] hover:!text-[#121212] transition-all duration-300 uppercase leading-none text-center"
               >
                 SUBSCRIBE
               </button>
