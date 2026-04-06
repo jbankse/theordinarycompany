@@ -25,7 +25,7 @@ export default function Hero() {
           
           <div className="mt-12 max-w-md">
             <p className="text-xl font-medium leading-tight uppercase text-[#121212] tracking-tight">
-              We deliver <Link href="/#services" className="text-[#FF0000] underline decoration-2 underline-offset-4 hover:text-[#121212] transition-colors">Visual Infrastructure as a Service (VIaaS)</Link>. Branding, motion design, and content production for modern brands.
+              We deliver <Link href="/blog/what-is-visual-infrastructure" className="text-[#FF0000] underline decoration-2 underline-offset-4 hover:text-[#121212] transition-colors">Visual Infrastructure as a Service (VIaaS)</Link>. Branding, motion design, and content production for modern brands.
             </p>
           </div>
         </div>

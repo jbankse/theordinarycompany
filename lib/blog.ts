@@ -11,6 +11,7 @@ export interface PostData {
   excerpt: string;
   author: string;
   content: string;
+  category: string;
 }
 
 export function getAllPosts(): PostData[] {
@@ -34,7 +35,8 @@ export function getAllPosts(): PostData[] {
         title: data.title || 'UNTITLED_POST',
         date: data.date || '0000-00-00',
         excerpt: data.excerpt || 'NO_EXCERPT_AVAILABLE',
-        author: data.author || 'ORDINARY_SYSTEMS',
+        author: data.author || 'THE_ORDINARY_COMPANY_SYSTEMS',
+        category: data.category || 'UNCATEGORIZED',
       };
     });
 
@@ -56,7 +58,8 @@ export function getPostBySlug(slug: string): PostData | null {
       title: data.title || 'UNTITLED_POST',
       date: data.date || '0000-00-00',
       excerpt: data.excerpt || 'NO_EXCERPT_AVAILABLE',
-      author: data.author || 'ORDINARY_SYSTEMS',
+      author: data.author || 'THE_ORDINARY_COMPANY_SYSTEMS',
+      category: data.category || 'UNCATEGORIZED',
     };
   } catch (error) {
     return null;

@@ -164,7 +164,7 @@ export default function Footer({ hideSubmit = false, theme = 'dark' }: { hideSub
         >
           <Link href="/" className="inline-block w-fit group">
             <h1 className="font-display font-black text-[18vw] md:text-[19vw] leading-[0.75] tracking-tighter uppercase text-[#FF0000] relative">
-              ORDINARY
+              THE ORDINARY COMPANY
             </h1>
           </Link>
         </motion.div>
@@ -179,7 +179,7 @@ export default function Footer({ hideSubmit = false, theme = 'dark' }: { hideSub
               <Link href="/privacy" className="hover:text-[#FF0000] hover:opacity-100 transition-all">PRIVACY POLICY</Link>
             </div>
           </div>
-          <p className="opacity-60 lg:opacity-100">MAKING THE EXTRAORDINARY—ORDINARY.</p>
+          <p className="opacity-60 lg:opacity-100">MAKING THE EXTRAORDINARY—THE ORDINARY COMPANY.</p>
         </div>
       </div>
 

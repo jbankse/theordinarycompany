@@ -2,8 +2,8 @@ export default function SchemaOrg() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "The Ordinary Company",
-    "alternateName": "Ordinary",
+    "name": "THE ORDINARY COMPANY",
+    "alternateName": "THE ORDINARY COMPANY",
     "url": "https://www.stopbeingordinary.com",
     "logo": "https://www.stopbeingordinary.com/logo.png",
     "description": "We deliver Visual Infrastructure as a Service (VIaaS) in the modern age of AI-augmented design. Specializing in Branding, Motion Design, Social Media, and Marketing Content Production.",

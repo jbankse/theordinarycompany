@@ -12,43 +12,23 @@ gsap.registerPlugin(ScrollTrigger);
 const articles = [
   {
     id: '01',
-    title: 'THE FUTURE OF VISUAL INFRASTRUCTURE',
-    category: 'THOUGHT LEADERSHIP',
-    image: 'https://picsum.photos/seed/tech/1200/800',
-    href: '/blog/future-of-visual-infrastructure',
-    author: 'Joshua Ordinary',
-    readTime: '5 MIN READ',
-    date: 'MAR 24, 2026'
+    title: 'FOUNDING STATEMENTS',
+    category: 'COMPANY',
+    image: 'https://picsum.photos/seed/ordinary/1200/800',
+    href: '/blog/founding-statements',
+    author: 'JOSHUA BANKS',
+    readTime: '4 MIN READ',
+    date: 'APR 05, 2026'
   },
   {
     id: '02',
-    title: 'AI IN MOTION DESIGN',
-    category: 'PROCESS & TOOLS',
-    image: 'https://picsum.photos/seed/studio/1200/800',
-    href: '/blog/ai-in-motion-design',
-    author: 'Sarah Chen',
-    readTime: '8 MIN READ',
-    date: 'MAR 18, 2026'
-  },
-  {
-    id: '03',
-    title: 'SYSTEMATIC BRANDING',
-    category: 'CASE STUDY',
-    image: 'https://picsum.photos/seed/identity/1200/800',
-    href: '/blog/systematic-branding',
-    author: 'Joshua Ordinary',
-    readTime: '12 MIN READ',
-    date: 'MAR 12, 2026'
-  },
-  {
-    id: '04',
-    title: 'SCALING CONTENT PRODUCTION',
-    category: 'STRATEGY',
-    image: 'https://picsum.photos/seed/network/1200/800',
-    href: '/blog/scaling-content-production',
-    author: 'Marcus Wright',
+    title: 'WHAT IS VISUAL INFRASTRUCTURE?',
+    category: 'THOUGHT LEADERSHIP',
+    image: 'https://picsum.photos/seed/tech/1200/800',
+    href: '/blog/what-is-visual-infrastructure',
+    author: 'JOSHUA BANKS',
     readTime: '6 MIN READ',
-    date: 'MAR 05, 2026'
+    date: 'APR 05, 2026'
   },
 ];
 

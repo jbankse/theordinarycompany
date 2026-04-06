@@ -47,7 +47,7 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
             className={`flex items-center px-4 md:px-6 ${isDark ? 'bg-[#FF0000] hover:bg-[#FFFFFF]' : 'bg-[#121212] hover:bg-[#FF0000] text-[#FFFFFF]'} hover:text-[#121212] transition-colors duration-200`}
             style={{ color: isDark ? '#121212' : undefined }}
           >
-            <span className="font-display font-black text-lg md:text-xl tracking-tighter uppercase">ORDINARY</span>
+            <span className="font-display font-black text-lg md:text-xl tracking-tighter uppercase">THE ORDINARY COMPANY</span>
           </Link>
 
           {/* Spacer to push links/buttons to the right */}
