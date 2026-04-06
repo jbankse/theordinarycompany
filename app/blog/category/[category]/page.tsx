@@ -3,9 +3,42 @@ import SimpleNavbar from '@/components/SimpleNavbar';
 import SimpleFooter from '@/components/SimpleFooter';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog';
+import { Metadata } from 'next';
 
-export default async function BlogPage() {
+interface CategoryPageProps {
+  params: Promise<{
+    category: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const { category } = await params;
+  const decodedCategory = decodeURIComponent(category).toUpperCase();
+  
+  return {
+    title: `${decodedCategory} | The Ordinary Company Insights`,
+    description: `Articles and perspectives regarding ${decodedCategory} from The Ordinary Company.`,
+  };
+}
+
+export async function generateStaticParams() {
   const posts = getAllPosts();
+  const categories = Array.from(new Set(posts.map((post) => post.category)));
+  
+  return categories.map((category) => ({
+    category: category.toLowerCase().replace(/\s+/g, '-'),
+  }));
+}
+
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { category } = await params;
+  const allPosts = getAllPosts();
+  
+  const filteredPosts = allPosts.filter(
+    (post) => post.category.toLowerCase().replace(/\s+/g, '-') === category
+  );
+
+  const categoryName = filteredPosts[0]?.category || decodeURIComponent(category).toUpperCase();
 
   return (
     <main className="relative min-h-[100dvh] bg-[#FFFFFF] clip-path-none pt-24 lg:pt-32">
@@ -15,18 +48,20 @@ export default async function BlogPage() {
       <section className="bg-[#F5F5F5] max-w-[1600px] mx-auto brutal-border-b border-[#121212]">
         <div className="p-8 lg:p-16 flex flex-col lg:flex-row justify-between items-end gap-8">
           <div>
-            <span className="big-number block">03</span>
+            <span className="font-mono font-bold text-xs tracking-widest uppercase opacity-50 mb-4 block text-[#121212]">
+              Category
+            </span>
             <h1 className="font-display font-black text-6xl lg:text-9xl leading-none uppercase tracking-tighter text-[#121212]">
-              Insights
+              {categoryName}
             </h1>
           </div>
           <div className="max-w-md">
-            <p className="font-mono font-bold text-xs tracking-widest uppercase opacity-50 mb-4 text-[#121212]">
-              Industry Perspectives & Updates
-            </p>
-            <p className="text-xl font-medium uppercase leading-tight text-[#121212]">
-              Defining the future of visual infrastructure through strategic observations and technical expertise.
-            </p>
+            <Link 
+              href="/blog"
+              className="font-mono font-bold text-xs tracking-widest uppercase text-[#FF0000] hover:text-[#121212] transition-colors"
+            >
+              ← Back to all insights
+            </Link>
           </div>
         </div>
       </section>
@@ -34,8 +69,7 @@ export default async function BlogPage() {
       {/* Posts Grid */}
       <section className="bg-[#FFFFFF]">
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {posts.length > 0 ? (
-          posts.map((post, index) => (
+          {filteredPosts.map((post) => (
             <Link 
               key={post.slug} 
               href={`/blog/${post.slug}`}
@@ -44,9 +78,6 @@ export default async function BlogPage() {
               <div>
                 <div className="flex justify-between items-start mb-8">
                   <div className="flex flex-col gap-1">
-                    <span className="font-mono font-bold text-[10px] tracking-widest text-[#FF0000] uppercase">
-                      {post.category}
-                    </span>
                     <time dateTime={post.date} className="font-mono font-bold text-[10px] tracking-widest opacity-60 uppercase group-hover:text-[#FFFFFF] transition-colors">
                       {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                     </time>
@@ -65,14 +96,7 @@ export default async function BlogPage() {
                 <div className="h-[2px] flex-1 bg-[#121212] group-hover:bg-[#FFFFFF] transition-colors" />
               </div>
             </Link>
-          ))
-        ) : (
-          <div className="col-span-full p-24 text-center border-b-2 border-[#121212]">
-            <p className="font-display text-4xl tracking-widest uppercase opacity-20">
-              No articles found
-            </p>
-          </div>
-          )}
+          ))}
         </div>
       </section>
 

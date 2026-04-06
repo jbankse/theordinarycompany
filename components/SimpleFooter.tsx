@@ -10,7 +10,7 @@ export default function SimpleFooter() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-16">
           <div>
-            <h4 className="font-sans font-bold text-[#121212]/50 text-xs md:text-sm mb-6">Company</h4>
+            <h4 className="font-sans font-bold text-[#121212] text-xs md:text-sm mb-6">Company</h4>
             <ul className="space-y-4 font-sans text-xs md:text-sm text-[#121212]">
               <li><Link href="/" className="hover:text-[#FF0000] transition-colors">Home</Link></li>
               <li><Link href="/#services" className="hover:text-[#FF0000] transition-colors">Services</Link></li>
@@ -21,7 +21,7 @@ export default function SimpleFooter() {
             </ul>
           </div>
           <div>
-            <h4 className="font-sans font-bold text-[#121212]/50 text-xs md:text-sm mb-6">Social</h4>
+            <h4 className="font-sans font-bold text-[#121212] text-xs md:text-sm mb-6">Social</h4>
             <ul className="space-y-4 font-sans text-xs md:text-sm text-[#121212]">
               <li><a href="https://instagram.com/stopbeingordinary" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF0000] transition-colors">Instagram</a></li>
               <li><a href="https://linkedin.com/company/theordinarycompany" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF0000] transition-colors">LinkedIn</a></li>
@@ -31,7 +31,7 @@ export default function SimpleFooter() {
             </ul>
           </div>
           <div>
-            <h4 className="font-sans font-bold text-[#121212]/50 text-xs md:text-sm mb-6">Terms & Policies</h4>
+            <h4 className="font-sans font-bold text-[#121212] text-xs md:text-sm mb-6">Terms & Policies</h4>
             <ul className="space-y-4 font-sans text-xs md:text-sm text-[#121212]">
               <li><Link href="/terms" className="hover:text-[#FF0000] transition-colors">Terms of Service</Link></li>
               <li><Link href="/privacy" className="hover:text-[#FF0000] transition-colors">Privacy Policy</Link></li>

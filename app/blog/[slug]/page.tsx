@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   }
 
   return {
-    title: `${post.title} | Ordinary Blog`,
+    title: `${post.title} | The Ordinary Company Blog`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -60,10 +60,17 @@ export default async function PostPage({ params }: PostPageProps) {
         <header className="w-full bg-[#FFFFFF] text-[#121212]">
           <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 pt-16 pb-16">
             <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-4 mb-8 text-xs font-mono font-bold tracking-widest opacity-80">
-                <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
-                <span>•</span>
-                <span>By {post.author}</span>
+              <div className="flex items-center gap-4 mb-8 text-xs font-mono font-bold tracking-widest uppercase">
+                <Link 
+                  href={`/blog/category/${post.category.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="text-[#FF0000] hover:text-[#121212] transition-colors"
+                >
+                  {post.category}
+                </Link>
+                <span className="opacity-40">•</span>
+                <time dateTime={post.date} className="opacity-80">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+                <span className="opacity-40">•</span>
+                <span className="opacity-80">By {post.author}</span>
               </div>
               <h1 className="font-display font-black text-[clamp(3rem,5vw,5rem)] leading-[1.1] tracking-tight mb-8 text-[#121212]">
                 {post.title}
@@ -85,39 +92,42 @@ export default async function PostPage({ params }: PostPageProps) {
               </div>
             </div>
             
-            <div className="mt-24 pt-12 border-t border-[#121212]/10">
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
-                <h3 className="font-sans font-bold text-2xl tracking-tight text-[#121212]">Continue Reading</h3>
-                <Link 
-                  href="/blog"
-                  className="font-sans text-sm font-bold tracking-widest hover:text-[#FF0000] transition-colors text-[#121212]"
-                >
-                  View All Insights
-                </Link>
+            {/* Continue Reading Section */}
+            {getAllPosts().filter((p) => p.slug !== post.slug).length > 0 && (
+              <div className="mt-24 pt-12 border-t border-[#121212]/10">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
+                  <h3 className="font-sans font-bold text-2xl tracking-tight text-[#121212]">Continue Reading</h3>
+                  <Link 
+                    href="/blog"
+                    className="font-sans text-sm font-bold tracking-widest hover:text-[#FF0000] transition-colors text-[#121212]"
+                  >
+                    View All Insights
+                  </Link>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {getAllPosts()
+                    .filter((p) => p.slug !== post.slug)
+                    .slice(0, 2)
+                    .map((otherPost) => (
+                      <Link 
+                        key={otherPost.slug} 
+                        href={`/blog/${otherPost.slug}`}
+                        className="group block p-6 md:p-8 border border-[#121212]/10 hover:border-[#121212] transition-colors duration-300 bg-[#FFFFFF]"
+                      >
+                        <time dateTime={otherPost.date} className="font-mono font-bold text-[10px] tracking-widest opacity-60 block mb-4 group-hover:text-[#121212] transition-colors">
+                          {new Date(otherPost.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                        </time>
+                        <h4 className="font-sans font-bold text-xl tracking-tight leading-tight mb-4 group-hover:text-[#FF0000] transition-colors text-[#121212]">
+                          {otherPost.title}
+                        </h4>
+                        <p className="text-sm font-sans font-medium opacity-80 transition-all line-clamp-2 text-[#121212]">
+                          {otherPost.excerpt}
+                        </p>
+                      </Link>
+                    ))}
+                </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {getAllPosts()
-                  .filter((p) => p.slug !== post.slug)
-                  .slice(0, 2)
-                  .map((otherPost) => (
-                    <Link 
-                      key={otherPost.slug} 
-                      href={`/blog/${otherPost.slug}`}
-                      className="group block p-6 md:p-8 border border-[#121212]/10 hover:border-[#121212] transition-colors duration-300 bg-[#FFFFFF]"
-                    >
-                      <time dateTime={otherPost.date} className="font-mono font-bold text-[10px] tracking-widest opacity-60 block mb-4 group-hover:text-[#121212] transition-colors">
-                        {new Date(otherPost.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                      </time>
-                      <h4 className="font-sans font-bold text-xl tracking-tight leading-tight mb-4 group-hover:text-[#FF0000] transition-colors text-[#121212]">
-                        {otherPost.title}
-                      </h4>
-                      <p className="text-sm font-sans font-medium opacity-80 transition-all line-clamp-2 text-[#121212]">
-                        {otherPost.excerpt}
-                      </p>
-                    </Link>
-                  ))}
-              </div>
-              </div>
+            )}
             </div>
           </div>
         </section>

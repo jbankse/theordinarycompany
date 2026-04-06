@@ -3,6 +3,14 @@ import localFont from 'next/font/local';
 import './globals.css';
 import SmoothScroll from '@/components/SmoothScroll';
 import CookieBanner from '@/components/CookieBanner';
+import Script from 'next/script';
+
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
+  }
+}
 
 const aileron = localFont({
   src: [
@@ -42,13 +50,13 @@ const aileronDisplay = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.stopbeingordinary.com'),
   title: {
-    default: 'Ordinary | Visual Infrastructure as a Service',
+    default: 'The Ordinary Company | Visual Infrastructure™ as a Service',
     template: '%s | The Ordinary Company',
   },
   description: 'The Ordinary Company is a media and technology firm delivering Visual Infrastructure as a Service (VIaaS). We provide AI-augmented branding, motion design, social media, and marketing content production for modern businesses.',
-  keywords: ['VIaaS', 'Visual Infrastructure', 'Visual Infrastructure as a Service', 'AI-augmented design', 'Motion Design', 'Branding', 'Social Media Content', 'Marketing Content', 'The Ordinary Company', 'Ordinary'],
+  keywords: ['VIaaS', 'Visual Infrastructure', 'Visual Infrastructure as a Service', 'AI-augmented design', 'Motion Design', 'Branding', 'Social Media Content', 'Marketing Content', 'The Ordinary Company'],
   openGraph: {
-    title: 'Ordinary | Visual Infrastructure as a Service',
+    title: 'The Ordinary Company | Visual Infrastructure™ as a Service',
     description: 'Delivering Visual Infrastructure as a Service (VIaaS) for modern brands.',
     url: 'https://www.stopbeingordinary.com',
     siteName: 'The Ordinary Company',
@@ -57,7 +65,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ordinary | Visual Infrastructure as a Service',
+    title: 'The Ordinary Company | Visual Infrastructure™ as a Service',
     description: 'We deliver Visual Infrastructure as a Service (VIaaS). Stop being ordinary.',
   },
   robots: {
@@ -77,6 +85,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${aileron.variable} ${aileronDisplay.variable} antialiased`}>
       <body suppressHydrationWarning className="bg-[#FFFFFF] text-[#121212] selection:bg-[#121212] selection:text-[#FFFFFF] overflow-x-hidden w-full max-w-[100vw] box-border min-h-[100dvh]">
+        {/* Google Tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XLFC45ZXVY"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            // Default consent to denied
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied'
+            });
+
+            gtag('config', 'G-XLFC45ZXVY', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+
         {/* Viewport Borders */}
         <div className="fixed inset-0 border-r-2 border-[#121212] z-[9999] pointer-events-none hidden md:block" />
         <SmoothScroll>

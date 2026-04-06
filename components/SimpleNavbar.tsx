@@ -5,7 +5,7 @@ export default function SimpleNavbar() {
     <nav className="fixed top-0 left-0 z-50 w-full bg-[#FFFFFF] py-8 px-6 md:px-16 lg:px-24">
       <div className="max-w-[1600px] mx-auto flex items-center justify-between">
         <Link href="/" className="text-[#121212]">
-          <span className="font-display font-black text-xl tracking-tighter uppercase">ORDINARY</span>
+          <span className="font-display font-black text-xl tracking-tighter uppercase">THE ORDINARY COMPANY</span>
         </Link>
 
         {/* Desktop Links */}

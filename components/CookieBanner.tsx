@@ -3,6 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
   const [hasAccepted, setHasAccepted] = useState(true); // Default true to prevent hydration mismatch, then check in useEffect
@@ -10,9 +16,23 @@ export default function CookieBanner() {
   useEffect(() => {
     // Check local storage to see if they already accepted
     const accepted = localStorage.getItem('cookiesAccepted');
-    setHasAccepted(!!accepted);
+    
+    // If we have a choice, update GA consent state on load
+    if (accepted === 'true') {
+      window.gtag?.('consent', 'update', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+      });
+      setHasAccepted(true);
+      return;
+    } else if (accepted === 'false') {
+      setHasAccepted(true);
+      return;
+    }
 
-    if (accepted) return;
+    setHasAccepted(false);
 
     // Handle scroll to show banner after 5% scroll
     const handleScroll = () => {
@@ -35,12 +55,25 @@ export default function CookieBanner() {
 
   const acceptCookies = () => {
     localStorage.setItem('cookiesAccepted', 'true');
+    window.gtag?.('consent', 'update', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
+    });
     setShowBanner(false);
     setHasAccepted(true);
   };
 
   const declineCookies = () => {
     localStorage.setItem('cookiesAccepted', 'false');
+    // Explicitly keep denied (though it's the default)
+    window.gtag?.('consent', 'update', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
     setShowBanner(false);
     setHasAccepted(true);
   };
